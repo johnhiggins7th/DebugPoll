@@ -1,0 +1,7 @@
+{
+  "ip": "10.100.106.125",
+  "port": 23,
+  "logInterval": 2,
+  "logDirectory": ".\\RemoteDebugStatusTool\\Logs",
+  "focusOnStop": true
+}
