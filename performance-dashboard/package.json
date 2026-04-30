@@ -1,0 +1,13 @@
+{
+  "name": "performance-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Desktop UI shell for Performance Dashboard.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^31.7.7"
+  }
+}
