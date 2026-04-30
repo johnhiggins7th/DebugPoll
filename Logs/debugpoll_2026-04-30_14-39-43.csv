@@ -1,0 +1,4 @@
+Timestamp,Time,FrTm(ms),GrnLine(ms),MstAvFrmTm,Frames,FrmDropped,MovieFrmDropped,AudioTracking,Mode
+2026-04-30 14:39:49,00:00:56,33.354,0.76,33.348,1704,3,0,0,Playing
+2026-04-30 14:39:51,00:00:58,33.351,0.67,33.348,1764,3,0,0,Playing
+2026-04-30 14:39:53,00:01:00,33.349,0.14,33.348,1824,3,0,0,Playing

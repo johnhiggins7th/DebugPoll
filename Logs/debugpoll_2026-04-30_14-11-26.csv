@@ -1,0 +1,36 @@
+Timestamp,Time,FrTm(ms),GrnLine(ms),MstAvFrmTm,Frames,FrmDropped,MovieFrmDropped,AudioTracking,Mode
+2026-04-30 14:11:34,00:00:10,33.355,0.81,33.348,303,1,0,0,Playing
+2026-04-30 14:11:36,00:00:12,33.369,0.81,33.348,363,1,0,0,Playing
+2026-04-30 14:11:38,00:00:14,33.349,0.81,33.348,424,1,0,0,Playing
+2026-04-30 14:11:40,00:00:16,33.363,0.82,33.348,484,1,0,0,Playing
+2026-04-30 14:11:42,00:00:18,33.347,0.81,33.348,544,1,0,0,Playing
+2026-04-30 14:11:44,00:00:20,33.332,0.79,33.348,605,1,0,0,Playing
+2026-04-30 14:11:46,00:00:22,33.530,0.80,33.350,665,1,0,0,Playing
+2026-04-30 14:11:48,00:00:24,33.347,0.81,33.348,725,0,0,0,Playing
+2026-04-30 14:11:50,00:00:26,33.336,0.98,33.348,785,0,0,0,Playing
+2026-04-30 14:11:52,00:00:28,33.347,0.17,33.348,845,0,0,0,Playing
+2026-04-30 14:11:54,00:00:29,33.347,0.17,33.348,889,0,0,0,Stopped
+
+SummaryField,Value
+DebugIt,Enabled
+Arch,64bit
+Gfx,DVI
+FPS,30.000
+MMTimerMode,Automatic
+SDIBitDepth,8
+ForceNumAudioChannel,0
+ForcePinnedMemOff,Disabled
+TargetDesktopBitDepth,10
+ForceActive3DOff,Disabled
+UpdateMoviesAfterRender,Disabled
+UsingMMTimer,Disabled
+SERVER,PESILENTPC (Master)
+FILE,c:\shows\default.xml
+FRAMERATE,30.000
+LICENCE,31.12.2026
+MOVIEDRIVES,G G G G G G
+GRAPHICS,1920 X 1080 60 HZ
+VERSION,"Delta Version=""2.8:15"" IPAddress=""192.168.1.167"" Port=""23"""
+
+StoppedEventTimestamp,Note
+2026-04-30 14:11:54,Test for the first time on local machine

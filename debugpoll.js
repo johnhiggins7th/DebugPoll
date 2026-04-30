@@ -19,7 +19,9 @@ const options = {
     logDirectory: settings.logDirectory || '.\\RemoteDebugStatusTool\\Logs',
     consoleTitle: settings.consoleTitle || 'Remote DebugStats',
     focusOnStop: settings.focusOnStop !== false,
-    command: 'debugstatus'
+    command: 'debugstatus',
+    passThresholdHours: settings.passThresholdHours !== undefined ? settings.passThresholdHours : 8,
+    unofficialPassThresholdHours: settings.unofficialPassThresholdHours !== undefined ? settings.unofficialPassThresholdHours : 1
 };
 
 function resolveLogDirectory(value) {
@@ -115,10 +117,11 @@ var testInfo = {
     numberOfGPUs: '',
     seventhSpoutRendererUsed: '',
     diskModel: '',
-    numberOfDrives: '',
-    driveConfig: '',
+    numberOfInstalledMediaDrives: '',
+    numberOfMovieDrivesUsed: '',
     numberOfOutputs: '',
     numberOfMovies: '',
+    numberOfLayers: '',
     outputResolution: '',
     mediaResolution: '',
     framerate: '',
@@ -133,17 +136,18 @@ const testInfoPrompts = [
     { key: 'serverType',              label: 'Server Type (eg W, S, P, R)' },
     { key: 'gpuModel',                label: 'GPU Model (eg. PRO4000)' },
     { key: 'numberOfGPUs',            label: 'Number of GPUs' },
-        { key: 'seventhSpoutRendererUsed',label: '7thSpoutRenderer Used (Y/N)' },
+    { key: 'seventhSpoutRendererUsed', label: '7thSpoutRenderer Used (Y/N)' },
     { key: 'diskModel',               label: 'Disk Model (eg. CM7, 9100, CD8)' },
-    { key: 'numberOfDrives',          label: 'Number of Drives' },
-    { key: 'driveConfig',             label: 'Individual drives or RAID0 (eg IND, RAID)' },
+    { key: 'numberOfInstalledMediaDrives', label: 'Number of installed Media Drives' },
+    { key: 'numberOfMovieDrivesUsed', label: 'Number of Movie Drives Used by Delta (indicates a single RAID0 array, multiple RAID0 arrays or individual drives)' },
     { key: 'numberOfOutputs',         label: 'Number of Outputs' },
-    { key: 'numberOfMovies',          label: 'Number of Individual Movies',
+    { key: 'numberOfMovies',          label: 'Number of Individual Movies per Layer',
       defaultFrom: 'numberOfOutputs',  hint: 'press Enter to use Number of Outputs' },
+    { key: 'numberOfLayers',          label: 'Number of Layers' },
     { key: 'outputResolution',        label: 'Output Resolution (eg. 3840x2160)' },
     { key: 'mediaResolution',         label: 'Media Resolution',
       defaultFrom: 'outputResolution', hint: 'press Enter to use Output Resolution' },
-        { key: 'framerate',               label: 'Framerate (eg 60,120):' },
+    { key: 'framerate',               label: 'Framerate (eg 60,120):' },
     { key: 'mediaBitDepth',           label: 'Media BitDepth (eg. 8, 10, 12)' },
     { key: 'mediaSampling',           label: 'Media Sampling (eg. 422, 444)' },
     { key: 'mediaFileType',           label: 'Media FileType (eg. TGA, DPX, 7thNLC, NotchLC_mov)' },
@@ -484,8 +488,9 @@ function buildResultFilename(result) {
     var now = new Date();
     var datePart = now.getFullYear() + '-' + pad2(now.getMonth() + 1) + '-' + pad2(now.getDate()) + 
         '_' + pad2(now.getHours()) + '-' + pad2(now.getMinutes()) + '-' + pad2(now.getSeconds());
-    var resultPart = (result === 'P') ? 'PASS' : 'FAIL';
-    var parts = [datePart, resultPart];
+    var resultLabel = resultPart(result);
+    var durationLabel = formatDurationForFilename(latestTimelineTime);
+    var parts = [datePart, resultLabel, durationLabel];
 
     testInfoPrompts.forEach(function (field) {
         if (field.excludeFromFilename) { return; }
@@ -560,8 +565,46 @@ function createResultFile(result) {
     }
 }
 
+// Returns total seconds from a "HH:MM:SS" string.
+function parseTimeToSeconds(timeStr) {
+    var parts = String(timeStr || '').split(':');
+    if (parts.length !== 3) { return 0; }
+    return (parseInt(parts[0], 10) || 0) * 3600 +
+           (parseInt(parts[1], 10) || 0) * 60 +
+           (parseInt(parts[2], 10) || 0);
+}
+
+// Returns "HH_MM" from a "HH:MM:SS" string (for use in filenames).
+function formatDurationForFilename(timeStr) {
+    var parts = String(timeStr || '').split(':');
+    if (parts.length < 2) { return '00_00'; }
+    return pad2(parseInt(parts[0], 10) || 0) + '_' + pad2(parseInt(parts[1], 10) || 0);
+}
+
+// Determines the result category based on the elapsed timeline time.
+// Returns 'PASS', 'UPASS', or 'OK'.
+function getResultCategory() {
+    var secs = parseTimeToSeconds(latestTimelineTime);
+    if (secs > options.passThresholdHours * 3600) { return 'PASS'; }
+    if (secs > options.unofficialPassThresholdHours * 3600) { return 'UPASS'; }
+    return 'OK';
+}
+
+// Maps a single keypress to a result code given the active category.
+// Returns a result code string or null if the key is not a positive/fail action.
+function mapKeyToResult(key, category) {
+    if (key === 'f') { return 'F'; }
+    if (category === 'PASS'  && key === 'p') { return 'P'; }
+    if (category === 'UPASS' && key === 'u') { return 'UP'; }
+    if (category === 'OK'    && key === 'o') { return 'OK'; }
+    return null;
+}
+
 function resultPart(result) {
-    return result === 'P' ? 'PASS' : 'FAIL';
+    if (result === 'P')  { return 'PASS'; }
+    if (result === 'UP') { return 'UPASS'; }
+    if (result === 'OK') { return 'OK'; }
+    return 'FAIL';
 }
 
 function normalizeInputKey(input) {
@@ -581,7 +624,17 @@ function showPassFailPrompt() {
         return;
     }
 
-    console.log('Log result? Press P = Pass, F = Fail, or any other key to continue:');
+    var category = getResultCategory();
+    var durationStr = latestTimelineTime || '00:00:00';
+    var promptLine;
+    if (category === 'PASS') {
+        promptLine = 'Test duration: ' + durationStr + '. Log result? Press P = Pass, F = Fail, or any other key to continue:';
+    } else if (category === 'UPASS') {
+        promptLine = 'Test duration: ' + durationStr + '. Log result? Press U = Unofficial Pass, F = Fail, or any other key to continue:';
+    } else {
+        promptLine = 'Test duration: ' + durationStr + '. Log result? Press O = OK, F = Fail, or any other key to continue:';
+    }
+    console.log(promptLine);
 
     if (!process.stdin.isTTY) {
         pausedRl = readline.createInterface({ input: process.stdin, output: process.stdout });
@@ -589,8 +642,8 @@ function showPassFailPrompt() {
             pausedRl.close();
             pausedRl = null;
             var k = normalizeInputKey(answer);
-            if (k === 'p') { createResultFile('P'); }
-            else if (k === 'f') { createResultFile('F'); }
+            var res = mapKeyToResult(k, category);
+            if (res) { createResultFile(res); }
             showPausedPrompt();
         });
         return;
@@ -610,8 +663,8 @@ function showPassFailPrompt() {
         pausedRl = null;
 
         var k = normalizeInputKey(key);
-        if (k === 'p') { createResultFile('P'); }
-        else if (k === 'f') { createResultFile('F'); }
+        var res = mapKeyToResult(k, category);
+        if (res) { createResultFile(res); }
         showPausedPrompt();
     };
 
@@ -628,7 +681,7 @@ function showPausedPrompt() {
 
     var promptMsg = isDisconnected
         ? 'Connection Lost. Press N to add a note, Q to quit, or any other key to reconnect:'
-        : 'Mode is Stopped. Press N to add a note, or Q to quit:';
+        : 'Mode is Stopped. Press N to add a note, or Q to quit:\nWaiting for Playback to resume for logging to continue...';
     console.log(promptMsg);
 
     if (!process.stdin.isTTY) {
@@ -698,11 +751,14 @@ function promptStoppedNote() {
 
     var stopTs = currentStoppedEventTimestamp || formatTimestamp(new Date());
 
-    // Delay lets the Windows console driver re-echo any pending raw-mode keypress byte.
-    // We then drain it before readline opens so it never reaches the input line.
+    // Delay lets the Windows console driver settle after leaving raw mode.
+    // Use terminal:false so readline does not do its own character echo/editing; the console's
+    // normal cooked-mode echo remains single and avoids duplicated characters in this prompt.
     setTimeout(function () {
-        try { process.stdin.resume(); while (process.stdin.read() !== null) {} } catch (e) {}
-        pausedRl = readline.createInterface({ input: process.stdin, output: process.stdout });
+        if (process.stdin.isTTY) {
+            try { process.stdin.setRawMode(false); } catch (e) {}
+        }
+        pausedRl = readline.createInterface({ input: process.stdin, output: process.stdout, terminal: false });
         pausedRl.question('Optional note for STOP at ' + stopTs + ' (leave blank and press Enter to skip): ', function (note) {
             pausedRl.close();
             pausedRl = null;

@@ -1,0 +1,26 @@
+Timestamp,Time,FrTm(ms),GrnLine(ms),MstAvFrmTm,Frames,FrmDropped,MovieFrmDropped,AudioTracking,Mode
+2026-04-30 14:36:52,00:00:52,33.345,0.68,33.348,1564,3,0,0,Playing
+2026-04-30 14:36:54,00:00:54,33.347,0.68,33.348,1625,3,0,0,Playing
+2026-04-30 14:36:56,00:00:56,33.355,0.28,33.348,1685,3,0,0,Playing
+2026-04-30 14:36:58,00:00:56,33.355,0.28,33.348,1696,3,0,0,Stopped
+
+SummaryField,Value
+DebugIt,Enabled
+Arch,64bit
+Gfx,DVI
+FPS,30.000
+MMTimerMode,Automatic
+SDIBitDepth,8
+ForceNumAudioChannel,0
+ForcePinnedMemOff,Disabled
+TargetDesktopBitDepth,10
+ForceActive3DOff,Disabled
+UpdateMoviesAfterRender,Disabled
+UsingMMTimer,Disabled
+SERVER,PESILENTPC (Master)
+FILE,c:\shows\default.xml
+FRAMERATE,30.000
+LICENCE,31.12.2026
+MOVIEDRIVES,G G G G G G
+GRAPHICS,1920 X 1080 60 HZ
+VERSION,"Delta Version=""2.8:15"" IPAddress=""100.94.47.25"" Port=""23"""
