@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-shell">
+        <header class="hero">
+            <div class="brand-lockup">
+                <img
+                    class="brand-logo"
+                    src="assets/7thsense-logo.png"
+                    alt="7thSense">
+                <h1 class="product-title">Performance Dashboard</h1>
+            </div>
+            <div class="hero-meta">
+                <div class="meta-card">
+                    <span class="meta-label">State</span>
+                    <strong id="session-state">Ready</strong>
+                </div>
+                <div class="meta-card">
+                    <span class="meta-label">Version</span>
+                    <strong id="app-version">0.1.0</strong>
+                </div>
+            </div>
+        </header>
+
+        <main class="dashboard-grid">
+
+            <!-- ── Tab bar ── -->
+            <div class="tab-bar">
+                <button class="tab-btn active" data-tab="session">Session</button>
+                <button class="tab-btn" data-tab="server-status">Server Status</button>
+                <button class="tab-btn" data-tab="test-profile">Test Profile</button>
+            </div>
+
+            <!-- ══ SESSION TAB ══ -->
+            <div id="tab-session" class="tab-pane active">
+
+                <section class="panel panel-accent panel-wide">
+                    <div class="panel-header">
+                        <span class="panel-kicker">Connection</span>
+                        <h2>Session Control</h2>
+                    </div>
+                    <div class="field-grid two-up">
+                        <label>
+                            <span>Connection Preset</span>
+                            <select id="connection-preset"></select>
+                        </label>
+                        <label>
+                            <span>Preset Name (for save)</span>
+                            <input id="connection-preset-name" type="text" placeholder="eg. Stage A">
+                        </label>
+                        <label>
+                            <span>Target IP</span>
+                            <input id="connection-ip" type="text" value="100.94.47.25" placeholder="eg. 10.100.106.125">
+                        </label>
+                        <label>
+                            <span>Port</span>
+                            <input id="connection-port" type="number" min="1" max="65535" step="1" value="23">
+                        </label>
+                        <label>
+                            <span>Poll Interval (seconds)</span>
+                            <input id="connection-interval" type="number" min="1" step="1" value="2">
+                        </label>
+                    </div>
+                    <div class="button-row">
+                        <button class="button button-primary" id="connect-btn" type="button">Connect</button>
+                        <button class="button" id="resume-btn" type="button">Resume Logging</button>
+                        <button class="button" id="save-connection-btn" type="button">Save Connection</button>
+                        <button class="button" id="save-preset-btn" type="button">Save As Preset</button>
+                        <button class="button" id="delete-preset-btn" type="button">Delete Preset</button>
+                        <button class="button button-danger" id="stop-btn" type="button">Stop Session</button>
+                    </div>
+                    <p class="session-status" id="session-status" aria-live="polite">Idle.</p>
+                    <pre class="session-payload" id="session-payload">No session snapshot captured yet.</pre>
+                </section>
+
+                <section class="panel panel-wide">
+                    <div class="panel-header">
+                        <span class="panel-kicker">Live Metrics</span>
+                        <h2>Playback Health</h2>
+                    </div>
+                    <div class="stat-grid">
+                        <article class="stat-card">
+                            <span>Mode</span>
+                            <strong id="metric-mode">Stopped</strong>
+                        </article>
+                        <article class="stat-card">
+                            <span>Frames</span>
+                            <strong id="metric-frames">0</strong>
+                        </article>
+                        <article class="stat-card">
+                            <span>FrmDropped</span>
+                            <strong id="metric-frmDropped">0</strong>
+                        </article>
+                        <article class="stat-card">
+                            <span>Duration</span>
+                            <strong id="metric-duration">00:00:00</strong>
+                        </article>
+                        <article class="stat-card">
+                            <span>MovieFrmDropped</span>
+                            <strong id="metric-movieFrmDropped">0</strong>
+                        </article>
+                        <article class="stat-card">
+                            <span>FrTm (ms)</span>
+                            <strong id="metric-frTm">0.00</strong>
+                        </article>
+                        <article class="stat-card">
+                            <span>GrnLine (ms)</span>
+                            <strong id="metric-grnLine">0.00</strong>
+                        </article>
+                        <article class="stat-card">
+                            <span>MstAvFrmTm (ms)</span>
+                            <strong id="metric-mstAvFrmTm">0.00</strong>
+                        </article>
+                        <article class="stat-card">
+                            <span>AudioTracking (ms)</span>
+                            <strong id="metric-audioTracking">0.00</strong>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="panel panel-wide">
+                    <div class="panel-header">
+                        <span class="panel-kicker">Live Performance Graph</span>
+                        <h2>Timing Graph</h2>
+                    </div>
+                    <div class="chart-legend-row">
+                        <span class="legend-item"><span class="legend-dot legend-dot-frtm"></span>Frame Time</span>
+                        <span class="legend-item"><span class="legend-dot legend-dot-grn"></span>GPU Time</span>
+                        <span class="legend-item"><span class="legend-dot legend-dot-audio"></span>Audio Tracking</span>
+                        <span class="chart-scale" id="performance-scale-label">FPS: 60.00</span>
+                    </div>
+                    <div class="chart-placeholder" id="performance-chart-wrap">
+                        <canvas id="performance-chart" aria-label="Timing graph live chart"></canvas>
+                    </div>
+                </section>
+
+                <section class="panel panel-wide">
+                    <div class="panel-header">
+                        <span class="panel-kicker">Operator Workflow</span>
+                        <h2>Session Notes And Decisions</h2>
+                    </div>
+                    <textarea rows="5" placeholder="Operator note captured when playback stops..."></textarea>
+                    <div class="button-row">
+                        <button class="button" type="button">Save Note</button>
+                        <button class="button button-primary" type="button">Mark Pass</button>
+                        <button class="button" type="button">Mark Unofficial Pass</button>
+                        <button class="button button-danger" type="button">Mark Fail</button>
+                    </div>
+                </section>
+
+            </div><!-- /tab-session -->
+
+
+            <!-- ══ SERVER STATUS TAB ══ -->
+            <div id="tab-server-status" class="tab-pane">
+
+                <div class="panel panel-wide ss-header-card">
+                    <div class="ss-server-header">
+                        <div>
+                            <div class="ss-server-name" id="ss-server-name">// —</div>
+                            <div class="ss-badges">
+                                <span class="ss-badge ss-badge-blue" id="ss-master-badge">MASTER</span>
+                                <span class="ss-badge" id="ss-version-badge">—</span>
+                                <span class="ss-badge" id="ss-arch-badge">—</span>
+                                <span class="ss-badge" id="ss-group-badge">GROUP —</span>
+                            </div>
+                        </div>
+                        <div class="ss-header-right">
+                            <div id="ss-graphic-settings">—</div>
+                            <div id="ss-scaling-mode">—</div>
+                            <div class="ss-last-updated" id="ss-last-updated">No data — connect to server</div>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="panel ss-card">
+                    <div class="card-title">System</div>
+                    <div class="ss-row"><span class="ss-lbl">Fullscreen</span><span class="ss-val" id="ss-fullscreen">—</span></div>
+                    <div class="ss-row"><span class="ss-lbl">Target FPS</span><span class="ss-val" id="ss-fps">—</span></div>
+                    <div class="ss-row"><span class="ss-lbl">Scaling</span><span class="ss-val" id="ss-scaling">—</span></div>
+                    <div class="ss-row"><span class="ss-lbl">Licence Expiry</span><span class="ss-val" id="ss-licence">—</span></div>
+                </section>
+
+                <section class="panel ss-card">
+                    <div class="card-title">Performance</div>
+                    <div class="ss-row"><span class="ss-lbl">Frame Time</span><span class="ss-val" id="ss-frame-time">—</span></div>
+                    <div class="ss-row"><span class="ss-lbl">Avg Frame Time</span><span class="ss-val" id="ss-frame-time-avg">—</span></div>
+                    <div class="ss-row"><span class="ss-lbl">Timing Mode</span><span class="ss-val" id="ss-timing-mode">—</span></div>
+                    <div class="ss-row"><span class="ss-lbl">Frames Dropped</span><span class="ss-val" id="ss-frames-dropped">—</span></div>
+                    <div class="ss-row"><span class="ss-lbl">Movie Frames Dropped</span><span class="ss-val" id="ss-movie-frames-dropped">—</span></div>
+                    <div class="ss-row"><span class="ss-lbl">Debug Mode</span><span class="ss-val" id="ss-debug-mode">—</span></div>
+                </section>
+
+                <section class="panel ss-card">
+                    <div class="card-title">Timeline</div>
+                    <div class="smpte-wrap">
+                        <div class="smpte-display" id="ss-smpte">--:--:--:--</div>
+                        <div class="smpte-sub">HH · MM · SS · FF</div>
+                    </div>
+                    <div class="ss-row"><span class="ss-lbl">Play State</span><span class="ss-val" id="ss-play-state">—</span></div>
+                    <div class="ss-row"><span class="ss-lbl">Current Frame</span><span class="ss-val" id="ss-current-frame">—</span></div>
+                    <div class="ss-row"><span class="ss-lbl">Enabled</span><span class="ss-val" id="ss-tl-enabled">—</span></div>
+                </section>
+
+                <section class="panel ss-card">
+                    <div class="card-title">Audio</div>
+                    <div class="ss-row"><span class="ss-lbl">Device Type</span><span class="ss-val" id="ss-audio-device">—</span></div>
+                    <div class="ss-row"><span class="ss-lbl">Forced Channels</span><span class="ss-val" id="ss-audio-channels">—</span></div>
+                    <div class="ss-row"><span class="ss-lbl">Level</span><span class="ss-val" id="ss-audio-level">—</span></div>
+                </section>
+
+                <section class="panel ss-card">
+                    <div class="card-title">Video &amp; SDI</div>
+                    <div class="ss-row"><span class="ss-lbl">Video Level</span><span class="ss-val" id="ss-video-level">—</span></div>
+                    <div class="ss-row"><span class="ss-lbl">SDI Enabled</span><span class="ss-val" id="ss-sdi-enabled">—</span></div>
+                    <div class="ss-row"><span class="ss-lbl">SDI Bit Depth</span><span class="ss-val" id="ss-sdi-bitdepth">—</span></div>
+                    <div class="ss-row"><span class="ss-lbl">SDI Mode</span><span class="ss-val" id="ss-sdi-mode">—</span></div>
+                </section>
+
+                <section class="panel ss-card">
+                    <div class="card-title">LED Status</div>
+                    <div class="ss-led-row">
+                        <div class="ss-led-item">
+                            <div class="ss-led-name">Audio</div>
+                            <div class="ss-led-indicator">
+                                <div class="ss-dot" id="ss-led-audio-dot"></div>
+                                <span class="ss-led-val" id="ss-led-audio-val">—</span>
+                            </div>
+                        </div>
+                        <div class="ss-led-item">
+                            <div class="ss-led-name">Movies</div>
+                            <div class="ss-led-indicator">
+                                <div class="ss-dot" id="ss-led-movies-dot"></div>
+                                <span class="ss-led-val" id="ss-led-movies-val">—</span>
+                            </div>
+                        </div>
+                        <div class="ss-led-item">
+                            <div class="ss-led-name">Video</div>
+                            <div class="ss-led-indicator">
+                                <div class="ss-dot" id="ss-led-video-dot"></div>
+                                <span class="ss-led-val" id="ss-led-video-val">—</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="panel panel-wide">
+                    <div class="card-title">Channel Configuration <span class="ss-subtitle" id="ss-channel-config-subtitle"></span></div>
+                    <div class="ss-ch-summary">
+                        <div class="ss-ch-stat"><div class="ss-ch-n" id="ss-canvas-size">—</div><div class="ss-ch-l">Canvas (px)</div></div>
+                        <div class="ss-ch-stat"><div class="ss-ch-n" id="ss-ch-layout">—</div><div class="ss-ch-l">Layout</div></div>
+                        <div class="ss-ch-stat"><div class="ss-ch-n" id="ss-channels-active">—</div><div class="ss-ch-l">Channels Active</div></div>
+                        <div class="ss-ch-stat"><div class="ss-ch-n" id="ss-per-channel">—</div><div class="ss-ch-l">Per Channel (px)</div></div>
+                        <div class="ss-ch-stat"><div class="ss-ch-n" id="ss-rotation">—</div><div class="ss-ch-l">Rotation</div></div>
+                    </div>
+                    <div class="ss-channel-grid" id="ss-channel-grid">
+                        <div class="ss-no-data">Waiting for server data…</div>
+                    </div>
+                </section>
+
+            </div><!-- /tab-server-status -->
+
+
+            <!-- ══ TEST PROFILE TAB ══ -->
+            <div id="tab-test-profile" class="tab-pane">
+
+                <section class="panel panel-wide">
+                    <div class="panel-header">
+                        <span class="panel-kicker">Structured Metadata</span>
+                        <h2>Test Profile</h2>
+                    </div>
+                    <div class="field-grid two-up" id="test-profile-form">
+                        <label>
+                            <span>Server Type</span>
+                            <select id="profile-serverType">
+                                <option>W</option>
+                                <option>S</option>
+                                <option>P</option>
+                                <option>R</option>
+                            </select>
+                        </label>
+                        <label>
+                            <span>GPU Model</span>
+                            <input id="profile-gpuModel" type="text" placeholder="eg. PRO4000">
+                        </label>
+                        <label>
+                            <span>Number of GPUs</span>
+                            <input id="profile-numberOfGPUs" type="number" min="0" step="1" placeholder="eg. 4">
+                        </label>
+                        <label>
+                            <span>Number of installed Media Drives</span>
+                            <input id="profile-numberOfInstalledMediaDrives" type="number" min="0" step="1" placeholder="eg. 8">
+                        </label>
+                        <label>
+                            <span>Number of Movie Drives Used by Delta</span>
+                            <input id="profile-numberOfMovieDrivesUsed" type="text" placeholder="eg. 2x RAID0 arrays">
+                        </label>
+                        <label>
+                            <span>Outputs</span>
+                            <select id="profile-numberOfOutputs">
+                                <option value="4">4</option>
+                                <option value="8">8</option>
+                                <option value="16">16</option>
+                            </select>
+                        </label>
+                        <label>
+                            <span>Number of Individual Movies per Layer</span>
+                            <input id="profile-numberOfMovies" type="number" min="0" step="1" placeholder="defaults to Outputs">
+                        </label>
+                        <label>
+                            <span>Number of Layers</span>
+                            <input id="profile-numberOfLayers" type="number" min="0" step="1" placeholder="eg. 1">
+                        </label>
+                        <label>
+                            <span>Output Resolution</span>
+                            <input id="profile-outputResolution" type="text" placeholder="eg. 3840x2160">
+                        </label>
+                        <label>
+                            <span>Media Resolution</span>
+                            <input id="profile-mediaResolution" type="text" placeholder="defaults to Output Resolution">
+                        </label>
+                        <label>
+                            <span>Framerate</span>
+                            <select id="profile-framerate">
+                                <option value="60">60</option>
+                                <option value="120">120</option>
+                                <option value="24">24</option>
+                                <option value="30">30</option>
+                            </select>
+                        </label>
+                        <label>
+                            <span>Media BitDepth</span>
+                            <select id="profile-mediaBitDepth">
+                                <option value="8">8</option>
+                                <option value="10">10</option>
+                                <option value="12">12</option>
+                            </select>
+                        </label>
+                        <label>
+                            <span>Media Sampling</span>
+                            <select id="profile-mediaSampling">
+                                <option value="422">422</option>
+                                <option value="444">444</option>
+                            </select>
+                        </label>
+                        <label>
+                            <span>Media FileType</span>
+                            <select id="profile-mediaFileType">
+                                <option>TGA</option>
+                                <option>DPX</option>
+                                <option>7thNLC</option>
+                                <option>NotchLC_mov</option>
+                                <option>Other</option>
+                            </select>
+                        </label>
+                        <label>
+                            <span>Warp and Blend</span>
+                            <select id="profile-warpAndBlend">
+                                <option value="">(not set)</option>
+                                <option value="Y">Y</option>
+                                <option value="N">N</option>
+                            </select>
+                        </label>
+                        <label>
+                            <span>Free Comment Field</span>
+                            <input id="profile-freeCommentField" type="text" placeholder="optional">
+                        </label>
+                    </div>
+                    <div class="button-row">
+                        <button class="button button-primary" id="profile-save" type="button">Save Test Profile</button>
+                        <button class="button" id="profile-reset" type="button">Reset Form</button>
+                        <button class="button" id="profile-autofetch" type="button">Auto-fetch from Server</button>
+                        <span class="profile-status" id="profile-status" aria-live="polite"></span>
+                    </div>
+                </section>
+
+            </div><!-- /tab-test-profile -->
+
+        </main>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>
