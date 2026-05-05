@@ -1,0 +1,64 @@
+﻿{
+    "collectedAtUtc":  "2026-04-30T22:49:30.2349534Z",
+    "computerName":  "W6E09JHI",
+    "os":  {
+               "caption":  "Microsoft Windows 11 Pro",
+               "version":  "10.0.22631",
+               "build":  "22631.4602",
+               "displayVersion":  "23H2",
+               "releaseId":  "2009",
+               "installDateUtc":  "2022-12-16T13:44:07.0000000Z"
+           },
+    "nvidia":  {
+                   "gpuCount":  1,
+                   "gpus":  [
+                                {
+                                    "name":  "NVIDIA GeForce RTX 3060 Laptop GPU",
+                                    "driverVersion":  "32.0.15.8195",
+                                    "pnpDeviceId":  "PCI\\VEN_10DE\u0026DEV_2520\u0026SUBSYS_0A5D1028\u0026REV_A1\\4\u00262D7FFD4D\u00260\u00260008",
+                                    "adapterRamBytes":  4293918720
+                                }
+                            ],
+                   "displayDrivers":  [
+                                          {
+                                              "deviceName":  "NVIDIA GeForce RTX 3060 Laptop GPU",
+                                              "driverVersion":  "32.0.15.8195",
+                                              "driverDate":  "2025-11-18T00:00:00.0000000Z",
+                                              "providerName":  "NVIDIA"
+                                          }
+                                      ]
+               },
+    "storage":  {
+                    "physicalDisks":  [
+                                          {
+                                              "friendlyName":  "NVMe Micron 2300 NVMe 1024GB",
+                                              "serialNumber":  "0000_0000_0000_0001_00A0_7521_301F_68FA.",
+                                              "mediaType":  "SSD",
+                                              "busType":  "RAID",
+                                              "canPool":  false,
+                                              "operationalStatus":  "OK",
+                                              "healthStatus":  "Healthy",
+                                              "sizeBytes":  1024209543168
+                                          }
+                                      ],
+                    "virtualDisks":  [
+
+                                     ],
+                    "storagePools":  [
+                                         {
+                                             "friendlyName":  "Primordial",
+                                             "isPrimordial":  true,
+                                             "healthStatus":  "Healthy",
+                                             "operationalStatus":  "OK"
+                                         }
+                                     ],
+                    "raid0Assessment":  {
+                                            "isRaid0Detected":  false,
+                                            "confidence":  "none",
+                                            "method":  "No explicit RAID metadata found.",
+                                            "notes":  [
+                                                          "No Storage Spaces virtual disk with ResiliencySettingName=Simple was detected."
+                                                      ]
+                                        }
+                }
+}

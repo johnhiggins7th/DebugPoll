@@ -15,6 +15,9 @@ contextBridge.exposeInMainWorld('performanceDashboard', {
     fetchServerInfo: function (connection) {
         return ipcRenderer.invoke('server:fetchInfo', connection || {});
     },
+    fetchRegistry: function (connection) {
+        return ipcRenderer.invoke('registry:fetch', connection || {});
+    },
     onFullStatusUpdate: function (callback) {
         if (typeof callback !== 'function') {
             return function () {};

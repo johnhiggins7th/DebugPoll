@@ -1,0 +1,2114 @@
+{
+    "Delta_PESILENTPC": {
+        "values": {
+            "DebugIt": {
+                "type": 1,
+                "data": "No"
+            },
+            "LegacyComms": {
+                "type": 1,
+                "data": "0"
+            },
+            "PlayOnStart": {
+                "type": 1,
+                "data": "0"
+            },
+            "PlayOnStartTimeline": {
+                "type": 1,
+                "data": "0"
+            },
+            "DefaultGeometryName": {
+                "type": 1,
+                "data": "Default"
+            },
+            "DefaultBlendsetName": {
+                "type": 1,
+                "data": "Default"
+            },
+            "GroupNumber": {
+                "type": 1,
+                "data": "0"
+            },
+            "CommandPort": {
+                "type": 1,
+                "data": "7001"
+            },
+            "TimingPort": {
+                "type": 1,
+                "data": "7003"
+            },
+            "ExtControlPortCount": {
+                "type": 1,
+                "data": "1"
+            },
+            "ExtControlPort": {
+                "type": 1,
+                "data": "23"
+            },
+            "ExtControlPort2": {
+                "type": 1,
+                "data": "24"
+            },
+            "ExtControlPort3": {
+                "type": 1,
+                "data": "25"
+            },
+            "ExtControlPort4": {
+                "type": 1,
+                "data": "26"
+            },
+            "ExtControlPortTimeoutSecs": {
+                "type": 1,
+                "data": "0"
+            },
+            "ExternalControlRestartUtilityPort": {
+                "type": 1,
+                "data": "5005"
+            },
+            "UsedEnetAdapter": {
+                "type": 1,
+                "data": "0"
+            },
+            "UsedEnetAdapterName": {
+                "type": 1,
+                "data": "AMI Remote NDIS6 based Device"
+            },
+            "SearchPort": {
+                "type": 1,
+                "data": "7002"
+            },
+            "UDPTelnetPort": {
+                "type": 1,
+                "data": "7780"
+            },
+            "UDPTelnetPortTx": {
+                "type": 1,
+                "data": "7781"
+            },
+            "UDPSearchPort": {
+                "type": 1,
+                "data": "7777"
+            },
+            "ExtControlNumMultiTelnetPorts": {
+                "type": 1,
+                "data": "5"
+            },
+            "EthernetAutoSocketRecreationTimeInSecs": {
+                "type": 1,
+                "data": "0"
+            },
+            "MasterRack": {
+                "type": 1,
+                "data": "1"
+            },
+            "SMPTEMaster": {
+                "type": 1,
+                "data": "1"
+            },
+            "RTDataDriveLetter": {
+                "type": 1,
+                "data": "E"
+            },
+            "OtherDataDriveLetter": {
+                "type": 1,
+                "data": "C"
+            },
+            "RTDataDriveLetter2": {
+                "type": 1,
+                "data": "E"
+            },
+            "RTDataDriveLetter3": {
+                "type": 1,
+                "data": "E"
+            },
+            "RTDataDriveLetter4": {
+                "type": 1,
+                "data": "E"
+            },
+            "RTDataDriveLetter5": {
+                "type": 1,
+                "data": "E"
+            },
+            "RTDataDriveLetter6": {
+                "type": 1,
+                "data": "E"
+            },
+            "RevertMovieDisksIfMissing": {
+                "type": 1,
+                "data": "0"
+            },
+            "DefaultFile": {
+                "type": 1,
+                "data": "None"
+            },
+            "MeshSize": {
+                "type": 1,
+                "data": "50"
+            },
+            "SlaveAudioToVideo": {
+                "type": 1,
+                "data": "1"
+            },
+            "InitAudioOnRewind": {
+                "type": 1,
+                "data": "0"
+            },
+            "ListenToLocalIPOnly": {
+                "type": 1,
+                "data": "0"
+            },
+            "SeqThumbGenFraction": {
+                "type": 1,
+                "data": "0"
+            },
+            "SeqThumbGenWidth": {
+                "type": 1,
+                "data": "80"
+            },
+            "SeqThumbGenHeight": {
+                "type": 1,
+                "data": "0"
+            },
+            "PlayOnStartDelay": {
+                "type": 1,
+                "data": "0"
+            },
+            "ForceBroadcastToSlaves": {
+                "type": 1,
+                "data": "0"
+            },
+            "BlendTextureWidth": {
+                "type": 1,
+                "data": "1024"
+            },
+            "BlendTextureHeight": {
+                "type": 1,
+                "data": "1024"
+            },
+            "BlendCosineCorrect": {
+                "type": 1,
+                "data": "0"
+            },
+            "InitPBuffer": {
+                "type": 1,
+                "data": "1"
+            },
+            "InitGenlock": {
+                "type": 1,
+                "data": "0"
+            },
+            "InitShaders": {
+                "type": 1,
+                "data": "1"
+            },
+            "ExpressMode": {
+                "type": 1,
+                "data": "0"
+            },
+            "ResourceCarveGroup": {
+                "type": 1,
+                "data": ""
+            }
+        },
+        "subkeys": {
+            "Anaglyph": {
+                "values": {
+                    "DefaultAGFile": {
+                        "type": 1,
+                        "data": "c:\\Program Files\\7thSense\\Delta\\Colorcode\\CC"
+                    },
+                    "RedCCSize": {
+                        "type": 1,
+                        "data": "1.000000"
+                    },
+                    "GreenCCSize": {
+                        "type": 1,
+                        "data": "1.000000"
+                    },
+                    "BlueCCSize": {
+                        "type": 1,
+                        "data": "1.000000"
+                    },
+                    "SizeInPH": {
+                        "type": 1,
+                        "data": "1"
+                    }
+                },
+                "subkeys": {}
+            },
+            "Codec": {
+                "values": {
+                    "CodecAllow": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "CodecExtensions": {
+                        "type": 1,
+                        "data": "mp4,m2v,avi,mpg,wmv,mov,ts"
+                    },
+                    "CodecUseLocalAudioDecode": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "CodecReCalcLength": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "CodecNumLoaderThreads": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "CodecCorrectAudioPosition": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "CodecDecodeDroppedAudioFrames": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "GPUDecodeIntel": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "GPUDecodeNVidia": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "GPUPipeline": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "UseDeltaFrameRateConversion": {
+                        "type": 1,
+                        "data": "0"
+                    }
+                },
+                "subkeys": {}
+            },
+            "Compere": {
+                "values": {
+                    "CompereInit": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "CompereResourcePoolTimeoutS": {
+                        "type": 1,
+                        "data": "10"
+                    }
+                },
+                "subkeys": {}
+            },
+            "ComPorts": {
+                "values": {
+                    "ExtCtrlComPort": {
+                        "type": 1,
+                        "data": "disabled 9600 n 8 1"
+                    },
+                    "TransportCtrlComPort": {
+                        "type": 1,
+                        "data": "disabled 9600 n 8 1"
+                    },
+                    "OrpheoCtrlComPort": {
+                        "type": 1,
+                        "data": "disabled 9600 n 8 1"
+                    },
+                    "Sony422ComPort": {
+                        "type": 1,
+                        "data": "78"
+                    },
+                    "Sony422EmulateNugget": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "Sony422NuggetAutoDelete": {
+                        "type": 1,
+                        "data": "1"
+                    }
+                },
+                "subkeys": {}
+            },
+            "ConfigurationDefaults": {
+                "values": {
+                    "ForceGridState": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "ForceInteractiveMode": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "ForceGeometryState": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "ForceBlendsState": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "ForceBeamsState": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "ForceFramerate": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "ResetFrameToZeroOnLoad": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "DefaultFrameRate": {
+                        "type": 1,
+                        "data": "25.000000"
+                    },
+                    "ForcedFrameRate": {
+                        "type": 1,
+                        "data": "25.000000"
+                    },
+                    "FrameRateChooseMode": {
+                        "type": 1,
+                        "data": "Auto"
+                    },
+                    "ForceFullscreen": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "UseSMTPEFromFile": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "StartWebClient": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "SMPTEForcedRateMode": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "SMPTEForcedRate": {
+                        "type": 1,
+                        "data": "30.000000"
+                    },
+                    "ForcePrerollLastframe": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "GlobalAudioOffset": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "GlobalStreamVideoDelayFrames": {
+                        "type": 1,
+                        "data": "2"
+                    },
+                    "GlobalSteamBufferSizeFrames": {
+                        "type": 1,
+                        "data": "30"
+                    },
+                    "ForceAudioPlaySpeedOverride": {
+                        "type": 1,
+                        "data": "0.000000"
+                    }
+                },
+                "subkeys": {}
+            },
+            "Graphics": {
+                "values": {
+                    "MatrixModeX": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "MatrixModeY": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "OptimiseMultiChannel": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "UseMMTimer": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "GoTopMostOnFullscreen": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "AdvancedViewportMode": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "DisablePBO": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "LargePointDistortion": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "ActiveStereoBlueLine": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "MaxTextureSize": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "SlaveTimingToVidCap": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "SlaveTimingToTelnet": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "InterpolateMovieFrames": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "ForceImageMipMapOff": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "EnableGDILine": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "ForceNonTan3DCal": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "CreateImageWithTextWhenBad": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "PointDistortionDotSize": {
+                        "type": 1,
+                        "data": "5"
+                    },
+                    "UsePowerOfTwoTextures": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "SlowAnimate": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "CanvasSmallerThanDesktop": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "MeshNurbNodeSize": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "FiFoDataLife": {
+                        "type": 1,
+                        "data": "0.1"
+                    },
+                    "FiFoMode": {
+                        "type": 1,
+                        "data": "2"
+                    },
+                    "DesktopTargetBitDepth": {
+                        "type": 1,
+                        "data": "8"
+                    },
+                    "ForceActive3DOff": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "ForcePinnedMemOff": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "PreviewSoftwareFormat": {
+                        "type": 1,
+                        "data": "2"
+                    },
+                    "PreviewHardwareFormat": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "ForceHWPreviewOff": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "PreviewDefaultMode": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "NumMemcpyThreads": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "BlockRenderOnMovieScrub": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "HWPreviewDevice": {
+                        "type": 1,
+                        "data": "Mini Monitor"
+                    },
+                    "UpdateMoviesAfterRender": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "MoviesUseLocalGLMem": {
+                        "type": 1,
+                        "data": "2"
+                    },
+                    "MediaGrabsUseGLMemDirectly": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "MediaGrabsPoolPreAllocationNum": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "MediaGrabsPoolPreAllocationSize": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "MediaGrabsDoubleBuffer": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "MoviesSupport12BitAndUp": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "MoviesClearBetweenUpdates": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "Force601For422VidCap": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "RenderAtCanvasRes": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "WarpOrderAAThenManual": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "sRGBInvert": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "VRDevice": {
+                        "type": 1,
+                        "data": "OpenVR"
+                    },
+                    "UseGLSyncForGPUTime": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "DoubleBufferMovies": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "AllowSourceWarpOnMesh": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "PushPopFBOStacks": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "FullScreenImmediate": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "WaitForGPUCommandsToComplete": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "ISFlags": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "ISProfile": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "OldEyepointMeshTransRotate": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "DebugOGL": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "PixelShiftHorizontal": {
+                        "type": 1,
+                        "data": "0.5"
+                    },
+                    "PixelShiftHorizontalInterleaveOn": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "PixelShiftVertical": {
+                        "type": 1,
+                        "data": "0.5"
+                    },
+                    "PixelShiftVerticalInterleaveOn": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "UseFirstPixelChroma": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "D3DTimingMode": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "MeshModeRenderMode": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "NotchRebuildXMLOnEnum": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "FarClip": {
+                        "type": 1,
+                        "data": "10000.0"
+                    },
+                    "SDIDevice": {
+                        "type": 1,
+                        "data": ""
+                    }
+                },
+                "subkeys": {
+                    "HDR": {
+                        "values": {
+                            "ShaderEnabled": {
+                                "type": 1,
+                                "data": "0"
+                            },
+                            "ToneMappingMethod": {
+                                "type": 1,
+                                "data": "1"
+                            },
+                            "GammaCorrectionEnabled": {
+                                "type": 1,
+                                "data": "1"
+                            },
+                            "GammaFactor": {
+                                "type": 1,
+                                "data": "2.2"
+                            },
+                            "Exposure": {
+                                "type": 1,
+                                "data": "1.0"
+                            },
+                            "MaximumLuminance": {
+                                "type": 1,
+                                "data": "1.0"
+                            }
+                        },
+                        "subkeys": {}
+                    }
+                }
+            },
+            "Hardware": {
+                "values": {
+                    "ForceComports": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "AudioUseASIO": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "AudioMaxPrepareToPlayTimeoutS": {
+                        "type": 1,
+                        "data": "2.0"
+                    },
+                    "ForceNPOTOff": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "MaintainUpdateWhenPaused": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "CaptureUpdateMode": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "DSCaptureKickStart": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "Allow420VidCap": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "ForceNumAudioChannels": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "ForceFullScreenWinSize": {
+                        "type": 1,
+                        "data": "0 0 0 0"
+                    },
+                    "RenderWindowStartPos": {
+                        "type": 1,
+                        "data": "80 30 880 510"
+                    },
+                    "NumTCFreeRunFrames": {
+                        "type": 1,
+                        "data": "2"
+                    },
+                    "AudioASIODevice": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "VirtualAudioFlags": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "VirtualAudioChannels": {
+                        "type": 1,
+                        "data": "64"
+                    },
+                    "LTCEnabled": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "LTCDefaultOutput": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "LTCDevice": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "LTCChannel": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "LTCForceNumAudioChannels": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "AudioStreamBufferSize": {
+                        "type": 1,
+                        "data": "65535"
+                    },
+                    "AudioPreloadIntoRAM": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "AudioSeamlessJoins": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "AudioSettings": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "AudioSeamlessScheduleFrames": {
+                        "type": 1,
+                        "data": "50"
+                    },
+                    "AudioEnableCustomMapping": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "AudioDSPBufferSizeOveride": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "AudioDSPNumBuffersOverride": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "AudioDeviceReleaseTimeout": {
+                        "type": 1,
+                        "data": "1500"
+                    },
+                    "MatroxCaptureCardOrder": {
+                        "type": 1,
+                        "data": "0,1,2,3,4,5,6,7"
+                    },
+                    "NDIReceivePreferBestPerformance": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "NDIReceiverPreferYUVoverRGB": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "NDIReceiverGPUDecodeEnabled": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "WebCaptureVideoFormat": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "WebCaptureCacheFrames": {
+                        "type": 1,
+                        "data": "100"
+                    }
+                },
+                "subkeys": {}
+            },
+            "Licence": {
+                "values": {
+                    "IsLicenced": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "LicenceKey": {
+                        "type": 1,
+                        "data": "-963300564"
+                    },
+                    "IsLicenceDigital": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "LicenceAppLevel": {
+                        "type": 1,
+                        "data": "Full"
+                    },
+                    "LicenceChannels": {
+                        "type": 1,
+                        "data": "32"
+                    },
+                    "LicenceBandwidth": {
+                        "type": 1,
+                        "data": "Unlimited"
+                    },
+                    "LicenceExpiry": {
+                        "type": 1,
+                        "data": "31.12.2026"
+                    },
+                    "LicenceOptions": {
+                        "type": 1,
+                        "data": "Genlock, Stereo, Mesh Mode, Dual Head High Bit Depth, Matrix Mode, 4k60, SDI2k, Auto Align, Composition"
+                    }
+                },
+                "subkeys": {}
+            },
+            "Marquee": {
+                "values": {
+                    "MarqueeInit": {
+                        "type": 1,
+                        "data": "0"
+                    }
+                },
+                "subkeys": {}
+            },
+            "ResourceDefaults": {
+                "values": {
+                    "UseDefaults": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "Flags      ": {
+                        "type": 1,
+                        "data": "0"
+                    }
+                },
+                "subkeys": {
+                    "2D": {
+                        "values": {
+                            "X": {
+                                "type": 1,
+                                "data": "0"
+                            },
+                            "Y": {
+                                "type": 1,
+                                "data": "0"
+                            },
+                            "W": {
+                                "type": 1,
+                                "data": "1024"
+                            },
+                            "H": {
+                                "type": 1,
+                                "data": "768"
+                            },
+                            "Roll": {
+                                "type": 1,
+                                "data": "0.000000"
+                            },
+                            "Fullscreen": {
+                                "type": 1,
+                                "data": "1"
+                            },
+                            "ForceWH": {
+                                "type": 1,
+                                "data": "0"
+                            },
+                            "MappingMode": {
+                                "type": 1,
+                                "data": "0"
+                            }
+                        },
+                        "subkeys": {}
+                    },
+                    "3D": {
+                        "values": {
+                            "Az": {
+                                "type": 1,
+                                "data": "0.000000"
+                            },
+                            "El": {
+                                "type": 1,
+                                "data": "0.000000"
+                            },
+                            "W": {
+                                "type": 1,
+                                "data": "90.000000"
+                            },
+                            "H": {
+                                "type": 1,
+                                "data": "90.000000"
+                            },
+                            "Roll": {
+                                "type": 1,
+                                "data": "0.000000"
+                            },
+                            "Fullscreen": {
+                                "type": 1,
+                                "data": "0"
+                            },
+                            "MappingMode": {
+                                "type": 1,
+                                "data": "0"
+                            }
+                        },
+                        "subkeys": {}
+                    }
+                }
+            },
+            "ResourcePaths": {
+                "values": {
+                    "count": {
+                        "type": 1,
+                        "data": "0"
+                    }
+                },
+                "subkeys": {}
+            },
+            "SDI": {
+                "values": {
+                    "Pixels": {
+                        "type": 1,
+                        "data": "1280"
+                    },
+                    "Lines": {
+                        "type": 1,
+                        "data": "720"
+                    },
+                    "Refresh": {
+                        "type": 1,
+                        "data": "60.000000"
+                    },
+                    "FrameMode": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "BitDepth": {
+                        "type": 1,
+                        "data": "8"
+                    },
+                    "ColourSpace": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "Flags": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "SelectedMode": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "Enabled": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "PreviewEnabled": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "StatsEnabled": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "SMPTE2110UseBluefieldPTPClock": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "SDICardOrder": {
+                        "type": 1,
+                        "data": "0,1,2,3,4,5,6,7"
+                    },
+                    "SDIMonitorGenlock": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "SDIDirectDMA": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "SDIInitAllOutputsOnStart": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "SDIBMDForcePNotPsF": {
+                        "type": 1,
+                        "data": "-1"
+                    },
+                    "ShowFilesSetSDIMode": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "MatroxQuad3GFor4kHandledByDelta": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "NumSDIBuffers": {
+                        "type": 1,
+                        "data": "4"
+                    },
+                    "MatroxNodeDepth": {
+                        "type": 1,
+                        "data": "6"
+                    },
+                    "MatroxGenlockSettleTimeMS": {
+                        "type": 1,
+                        "data": "2000"
+                    },
+                    "MatroxReadToWriteDelay": {
+                        "type": 1,
+                        "data": "2"
+                    },
+                    "SMPTE2110OutputTroOffset": {
+                        "type": 1,
+                        "data": "0.0"
+                    },
+                    "SMPTE2110OutputTroTrsMultiplier": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "SMPTE2110OutputPacketBurstSize": {
+                        "type": 1,
+                        "data": "30"
+                    },
+                    "SMPTE2110UseSDINotEgressTimestamping": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "SMPTE2110LockToVSync": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "SMPTE2110ChannelsIncSourceIPPerChannel": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "SMPTE2110OverridePortPrimary": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "SMPTE2110OverridePortSecondary": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "SMPTE2110OverrideDestinationPrimaryPortAnc": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "SMPTE2110OverrideDestinationSecondaryPortAnc": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "SMPTE2110ChannelsIncMulticast": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "SMPTE2110PreviewDestinationAddressOffset": {
+                        "type": 1,
+                        "data": "50"
+                    },
+                    "SMPTE2110CPUAffinity": {
+                        "type": 1,
+                        "data": "0,0"
+                    },
+                    "SMPTE2110OutputDebug": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "SMPTE2110ContentFrameDelay": {
+                        "type": 1,
+                        "data": "3"
+                    },
+                    "RgSMPTE2110AutoCorrect": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "RgSMPTE2110NMOSEnable": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "SMPTE2110NMOSBaseTag": {
+                        "type": 1,
+                        "data": ""
+                    },
+                    "SMPTE2110PreviewSDPFullPath": {
+                        "type": 1,
+                        "data": ""
+                    },
+                    "SMPTE2110OverrideDestinationSecondaryAnc": {
+                        "type": 1,
+                        "data": ""
+                    },
+                    "SMPTE2110OverrideDestinationPrimaryAnc": {
+                        "type": 1,
+                        "data": ""
+                    },
+                    "SMPTE2110OverrideDestinationSecondary": {
+                        "type": 1,
+                        "data": ""
+                    },
+                    "SMPTE2110OverrideDestinationPrimary": {
+                        "type": 1,
+                        "data": ""
+                    },
+                    "SMPTE2110OverrideIPAddressSecondary": {
+                        "type": 1,
+                        "data": ""
+                    },
+                    "SMPTE2110OverrideIPAddressPrimary": {
+                        "type": 1,
+                        "data": ""
+                    },
+                    "DeviceName": {
+                        "type": 1,
+                        "data": ""
+                    }
+                },
+                "subkeys": {}
+            },
+            "System": {
+                "values": {
+                    "DebugLog": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "TerminateOnException": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "DebugLogRotationEnabled": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "NatNetEnabled": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "GPIOpinModes": {
+                        "type": 1,
+                        "data": "5"
+                    },
+                    "PicoLEDgreen": {
+                        "type": 1,
+                        "data": "5"
+                    },
+                    "PicoLEDred": {
+                        "type": 1,
+                        "data": "7"
+                    },
+                    "NumLoaderThreads": {
+                        "type": 1,
+                        "data": "5"
+                    },
+                    "NumActiveLoaderThreads": {
+                        "type": 1,
+                        "data": "3"
+                    },
+                    "TotalNumLoaderThreads": {
+                        "type": 1,
+                        "data": "40"
+                    },
+                    "UseDynamicLoaderThreads": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "SyncLoadersToTimingPackets": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "Raid7thEnabled": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "Raid7thEnabledArrays": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "TimeToWaitForSlaveResponseMS": {
+                        "type": 1,
+                        "data": "800"
+                    },
+                    "SlaveStopOnMasterLoss": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "DebugLogExpires": {
+                        "type": 1,
+                        "data": "30"
+                    },
+                    "ImagePreCacheSeconds": {
+                        "type": 1,
+                        "data": "5"
+                    },
+                    "UseDynamicImageLoading": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "NumImageTexturesInPool": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "ForcePreviewOff": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "ForcePBufferWidth": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "ForcePBufferHeight": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "NumPreRollFrames": {
+                        "type": 1,
+                        "data": "100"
+                    },
+                    "SMPTEDevice": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "SMPTESlavingActive": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "SMPTEDeltaGroupID": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "MissingFrameColour": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "DrawBackSurface": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "DrawInteractiveFrustumsAndAxes": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "NumReadAheadFrames": {
+                        "type": 1,
+                        "data": "50"
+                    },
+                    "UseIoCompletionPort": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "DisableSeamlessLoop": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "IntelligentResources": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "OrpheoTimecodeOffset": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "CommsHeartBeatTimeout": {
+                        "type": 1,
+                        "data": "30"
+                    },
+                    "EnetBroadcastAddress": {
+                        "type": 1,
+                        "data": "255.255.255.255"
+                    },
+                    "EnetTimingNIC": {
+                        "type": 1,
+                        "data": "-1"
+                    },
+                    "MtcTolerance": {
+                        "type": 1,
+                        "data": "0.0"
+                    },
+                    "DefaultXMLPath": {
+                        "type": 1,
+                        "data": "c:\\Shows"
+                    },
+                    "DefaultMeshPath": {
+                        "type": 1,
+                        "data": "c:\\Meshes"
+                    },
+                    "DefaultRecordPath": {
+                        "type": 1,
+                        "data": "e:\\Movies"
+                    },
+                    "RecordClaimPath": {
+                        "type": 1,
+                        "data": "C:\\Movies\\Rec_Farm\\Claims\\"
+                    },
+                    "SlaveTimingMode": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "DefaultSequenceFile": {
+                        "type": 1,
+                        "data": "c:\\Program Files\\7thSense\\Delta\\Sequences\\Sequences.xml"
+                    },
+                    "DefaultPixelMappingsFile": {
+                        "type": 1,
+                        "data": "c:\\ArtNet\\PixelMappings.xml"
+                    },
+                    "DMALimit": {
+                        "type": 1,
+                        "data": "50000000"
+                    },
+                    "QueueDepth": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "ResetFileAssoc": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "DebugLogDroppedFrames": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "AutoSaveSeconds": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "DisableMovieDriveSearch": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "UDPTransportControls": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "InteractionFlags": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "InteractionMode": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "SystemSequenceFlags": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "PlaylistImmediateTriggerDelaySecs": {
+                        "type": 1,
+                        "data": "0.5"
+                    },
+                    "TrackingNodeGUIUploadTimeSecs": {
+                        "type": 1,
+                        "data": "1.0"
+                    },
+                    "DPMEnabled": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "DPMMaster": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "TimingControlsDistributionEnabled": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "TimingControlsDistributionBasePort": {
+                        "type": 1,
+                        "data": "2000"
+                    },
+                    "EnableInterServerComms": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "AAEnabled": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "AABlendEnabled": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "AAWarpEnabled": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "AABlackLevelEnabled": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "AAMode": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "AABlackLevel": {
+                        "type": 1,
+                        "data": "1.000000"
+                    },
+                    "AALoadPerspectiveWarpBlendInFlatplane": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "AAScalableNegatePerspectiveZ": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "AAColour": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "AAMasking": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "AAUseShowFileEnabled": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "AAWarpBlends": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "STMapGeomPixTol": {
+                        "type": 1,
+                        "data": "0.0"
+                    },
+                    "STMapGeomLineTol": {
+                        "type": 1,
+                        "data": "0.0"
+                    },
+                    "SoundManLineInputPort": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "SoundManTCListenerPort": {
+                        "type": 1,
+                        "data": "1000"
+                    },
+                    "SoundManAudioInterface": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "ServerGroupMode": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "AutoPlayStartPos": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "AutoPlayAlwaysRender": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "TimelineMode": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "VNCPassword": {
+                        "type": 1,
+                        "data": "7th"
+                    },
+                    "WebRTCPeerName": {
+                        "type": 1,
+                        "data": "DeltaServer"
+                    },
+                    "WebRTCEnabled": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "WebRTCPort": {
+                        "type": 1,
+                        "data": "7878"
+                    },
+                    "NDIPreviewEnabled": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "SMPTE2110PreviewEnabled": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "PlayListStartDelaySecs": {
+                        "type": 1,
+                        "data": "5"
+                    },
+                    "DictLeader": {
+                        "type": 1,
+                        "data": "Leader"
+                    },
+                    "DictFollower": {
+                        "type": 1,
+                        "data": "Follower"
+                    },
+                    "DictLeaderShort": {
+                        "type": 1,
+                        "data": "Ldr"
+                    },
+                    "DictFollowerShort": {
+                        "type": 1,
+                        "data": "Fol"
+                    },
+                    "MaxLTCError": {
+                        "type": 1,
+                        "data": "2"
+                    },
+                    "LocalLTCIsSoundman": {
+                        "type": 1,
+                        "data": "1"
+                    },
+                    "MaxTimeToPrepareToPlayS": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "LTCWaitForFrameChange": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "MaxAudioSWChannels": {
+                        "type": 1,
+                        "data": "32"
+                    },
+                    "PreAllocatedMoviePools": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "RegisterStatusInterval": {
+                        "type": 1,
+                        "data": "1000"
+                    },
+                    "RealTimeRecordingEnabled": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "PicoGPIOEnabled": {
+                        "type": 1,
+                        "data": "0"
+                    },
+                    "EnetPreferredTimingAddress": {
+                        "type": 1,
+                        "data": ""
+                    },
+                    "EnetPreferredAddress": {
+                        "type": 1,
+                        "data": ""
+                    },
+                    "StartupSequence": {
+                        "type": 1,
+                        "data": ""
+                    },
+                    "Raid7tRaidSet4Name": {
+                        "type": 1,
+                        "data": ""
+                    },
+                    "Raid7tRaidSet3Name": {
+                        "type": 1,
+                        "data": ""
+                    },
+                    "Raid7tRaidSet2Name": {
+                        "type": 1,
+                        "data": ""
+                    },
+                    "Raid7tRaidSet1Name": {
+                        "type": 1,
+                        "data": ""
+                    },
+                    "Raid7thRaidSetDrives4": {
+                        "type": 1,
+                        "data": ""
+                    },
+                    "Raid7thRaidSetDrives3": {
+                        "type": 1,
+                        "data": ""
+                    },
+                    "Raid7thRaidSetDrives2": {
+                        "type": 1,
+                        "data": ""
+                    },
+                    "Raid7thRaidSetDrives1": {
+                        "type": 1,
+                        "data": ""
+                    },
+                    "PermanentXMLMergeFile": {
+                        "type": 1,
+                        "data": ""
+                    },
+                    "PermanentXDLFile": {
+                        "type": 1,
+                        "data": ""
+                    },
+                    "OnlyAcceptCommsOnIPAddress": {
+                        "type": 1,
+                        "data": ""
+                    },
+                    "BlockedGroups": {
+                        "type": 1,
+                        "data": ""
+                    }
+                },
+                "subkeys": {
+                    "AAChannels": {
+                        "values": {
+                            "ScalableData01": {
+                                "type": 1,
+                                "data": "ScalableData01.ol"
+                            },
+                            "ScalableData02": {
+                                "type": 1,
+                                "data": "ScalableData02.ol"
+                            },
+                            "ScalableData03": {
+                                "type": 1,
+                                "data": "ScalableData03.ol"
+                            },
+                            "ScalableData04": {
+                                "type": 1,
+                                "data": "ScalableData04.ol"
+                            },
+                            "ScalableData05": {
+                                "type": 1,
+                                "data": "ScalableData05.ol"
+                            },
+                            "ScalableData06": {
+                                "type": 1,
+                                "data": "ScalableData06.ol"
+                            },
+                            "ScalableData07": {
+                                "type": 1,
+                                "data": "ScalableData07.ol"
+                            },
+                            "ScalableData08": {
+                                "type": 1,
+                                "data": "ScalableData08.ol"
+                            },
+                            "ScalableData09": {
+                                "type": 1,
+                                "data": "ScalableData09.ol"
+                            },
+                            "ScalableData10": {
+                                "type": 1,
+                                "data": "ScalableData10.ol"
+                            },
+                            "ScalableData11": {
+                                "type": 1,
+                                "data": "ScalableData11.ol"
+                            },
+                            "ScalableData12": {
+                                "type": 1,
+                                "data": "ScalableData12.ol"
+                            },
+                            "ScalableData13": {
+                                "type": 1,
+                                "data": "ScalableData13.ol"
+                            },
+                            "ScalableData14": {
+                                "type": 1,
+                                "data": "ScalableData14.ol"
+                            },
+                            "ScalableData15": {
+                                "type": 1,
+                                "data": "ScalableData15.ol"
+                            },
+                            "ScalableData16": {
+                                "type": 1,
+                                "data": "ScalableData16.ol"
+                            },
+                            "ScalableData17": {
+                                "type": 1,
+                                "data": "ScalableData17.ol"
+                            },
+                            "ScalableData18": {
+                                "type": 1,
+                                "data": "ScalableData18.ol"
+                            },
+                            "ScalableData19": {
+                                "type": 1,
+                                "data": "ScalableData19.ol"
+                            },
+                            "ScalableData20": {
+                                "type": 1,
+                                "data": "ScalableData20.ol"
+                            },
+                            "ScalableData21": {
+                                "type": 1,
+                                "data": "ScalableData21.ol"
+                            },
+                            "ScalableData22": {
+                                "type": 1,
+                                "data": "ScalableData22.ol"
+                            },
+                            "ScalableData23": {
+                                "type": 1,
+                                "data": "ScalableData23.ol"
+                            },
+                            "ScalableData24": {
+                                "type": 1,
+                                "data": "ScalableData24.ol"
+                            },
+                            "ScalableData25": {
+                                "type": 1,
+                                "data": "ScalableData25.ol"
+                            },
+                            "ScalableData26": {
+                                "type": 1,
+                                "data": "ScalableData26.ol"
+                            },
+                            "ScalableData27": {
+                                "type": 1,
+                                "data": "ScalableData27.ol"
+                            },
+                            "ScalableData28": {
+                                "type": 1,
+                                "data": "ScalableData28.ol"
+                            },
+                            "ScalableData29": {
+                                "type": 1,
+                                "data": "ScalableData29.ol"
+                            },
+                            "ScalableData30": {
+                                "type": 1,
+                                "data": "ScalableData30.ol"
+                            },
+                            "ScalableData31": {
+                                "type": 1,
+                                "data": "ScalableData31.ol"
+                            },
+                            "ScalableData32": {
+                                "type": 1,
+                                "data": "ScalableData32.ol"
+                            },
+                            "ScalableData33": {
+                                "type": 1,
+                                "data": "ScalableData33.ol"
+                            },
+                            "ScalableData34": {
+                                "type": 1,
+                                "data": "ScalableData34.ol"
+                            },
+                            "ScalableData35": {
+                                "type": 1,
+                                "data": "ScalableData35.ol"
+                            },
+                            "ScalableData36": {
+                                "type": 1,
+                                "data": "ScalableData36.ol"
+                            },
+                            "ScalableData37": {
+                                "type": 1,
+                                "data": "ScalableData37.ol"
+                            },
+                            "ScalableData38": {
+                                "type": 1,
+                                "data": "ScalableData38.ol"
+                            },
+                            "ScalableData39": {
+                                "type": 1,
+                                "data": "ScalableData39.ol"
+                            },
+                            "ScalableData40": {
+                                "type": 1,
+                                "data": "ScalableData40.ol"
+                            },
+                            "ScalableData41": {
+                                "type": 1,
+                                "data": "ScalableData41.ol"
+                            },
+                            "ScalableData42": {
+                                "type": 1,
+                                "data": "ScalableData42.ol"
+                            },
+                            "ScalableData43": {
+                                "type": 1,
+                                "data": "ScalableData43.ol"
+                            },
+                            "ScalableData44": {
+                                "type": 1,
+                                "data": "ScalableData44.ol"
+                            },
+                            "ScalableData45": {
+                                "type": 1,
+                                "data": "ScalableData45.ol"
+                            },
+                            "ScalableData46": {
+                                "type": 1,
+                                "data": "ScalableData46.ol"
+                            },
+                            "ScalableData47": {
+                                "type": 1,
+                                "data": "ScalableData47.ol"
+                            },
+                            "ScalableData48": {
+                                "type": 1,
+                                "data": "ScalableData48.ol"
+                            },
+                            "ScalableData49": {
+                                "type": 1,
+                                "data": "ScalableData49.ol"
+                            },
+                            "ScalableData50": {
+                                "type": 1,
+                                "data": "ScalableData50.ol"
+                            },
+                            "ScalableData51": {
+                                "type": 1,
+                                "data": "ScalableData51.ol"
+                            },
+                            "ScalableData52": {
+                                "type": 1,
+                                "data": "ScalableData52.ol"
+                            },
+                            "ScalableData53": {
+                                "type": 1,
+                                "data": "ScalableData53.ol"
+                            },
+                            "ScalableData54": {
+                                "type": 1,
+                                "data": "ScalableData54.ol"
+                            },
+                            "ScalableData55": {
+                                "type": 1,
+                                "data": "ScalableData55.ol"
+                            },
+                            "ScalableData56": {
+                                "type": 1,
+                                "data": "ScalableData56.ol"
+                            },
+                            "ScalableData57": {
+                                "type": 1,
+                                "data": "ScalableData57.ol"
+                            },
+                            "ScalableData58": {
+                                "type": 1,
+                                "data": "ScalableData58.ol"
+                            },
+                            "ScalableData59": {
+                                "type": 1,
+                                "data": "ScalableData59.ol"
+                            },
+                            "ScalableData60": {
+                                "type": 1,
+                                "data": "ScalableData60.ol"
+                            },
+                            "ScalableData61": {
+                                "type": 1,
+                                "data": "ScalableData61.ol"
+                            },
+                            "ScalableData62": {
+                                "type": 1,
+                                "data": "ScalableData62.ol"
+                            },
+                            "ScalableData63": {
+                                "type": 1,
+                                "data": "ScalableData63.ol"
+                            },
+                            "ScalableData64": {
+                                "type": 1,
+                                "data": "ScalableData64.ol"
+                            }
+                        },
+                        "subkeys": {}
+                    },
+                    "ArtNet": {
+                        "values": {
+                            "NIC": {
+                                "type": 1,
+                                "data": "0"
+                            },
+                            "InputNIC": {
+                                "type": 1,
+                                "data": "0"
+                            },
+                            "Universe": {
+                                "type": 1,
+                                "data": "0"
+                            },
+                            "SubNet": {
+                                "type": 1,
+                                "data": "0"
+                            },
+                            "Flags": {
+                                "type": 1,
+                                "data": "0"
+                            },
+                            "OutputChannels": {
+                                "type": 1,
+                                "data": "512"
+                            },
+                            "BroadcastAddress": {
+                                "type": 1,
+                                "data": "255.255.255.255"
+                            },
+                            "ArtNetRXPort": {
+                                "type": 1,
+                                "data": "6455"
+                            },
+                            "ArtNetTXPort": {
+                                "type": 1,
+                                "data": "6454"
+                            },
+                            "ArtNetLogging": {
+                                "type": 1,
+                                "data": "0"
+                            }
+                        },
+                        "subkeys": {}
+                    },
+                    "GlobalVariables": {
+                        "values": {
+                            "LogGlobalVarSaving": {
+                                "type": 1,
+                                "data": "0"
+                            },
+                            "count": {
+                                "type": 1,
+                                "data": "0"
+                            }
+                        },
+                        "subkeys": {}
+                    },
+                    "ISAAC": {
+                        "values": {
+                            "ISAACInit": {
+                                "type": 1,
+                                "data": "0"
+                            },
+                            "ISAACEnabled": {
+                                "type": 1,
+                                "data": "0"
+                            },
+                            "ISAACMinLogLevel": {
+                                "type": 1,
+                                "data": "1"
+                            },
+                            "ISAACHostIP": {
+                                "type": 1,
+                                "data": "127.0.0.1"
+                            },
+                            "ISAACModuleId": {
+                                "type": 1,
+                                "data": "DeltaLeader"
+                            },
+                            "ISAACMaxTimelines": {
+                                "type": 1,
+                                "data": "8"
+                            },
+                            "ISAACNumServersExpectedInGroup": {
+                                "type": 1,
+                                "data": "1"
+                            },
+                            "ISAACAllowPlayablesToControlPlayback": {
+                                "type": 1,
+                                "data": "0"
+                            },
+                            "ISAACHeartbeatTimeMS": {
+                                "type": 1,
+                                "data": "5000"
+                            },
+                            "ISAACUpdateTimeMS": {
+                                "type": 1,
+                                "data": "1000"
+                            },
+                            "ISAACUpdatePlayerDetailsTimeMS": {
+                                "type": 1,
+                                "data": "30000"
+                            },
+                            "ISAACScheduleUseISAACTimes": {
+                                "type": 1,
+                                "data": "1"
+                            },
+                            "ISAACScheduleIncrementalUpdateTimeS": {
+                                "type": 1,
+                                "data": "0"
+                            },
+                            "ISAACPublishWebServiceAsPanel": {
+                                "type": 1,
+                                "data": "1"
+                            },
+                            "ISAACToken": {
+                                "type": 1,
+                                "data": ""
+                            }
+                        },
+                        "subkeys": {}
+                    },
+                    "OSC": {
+                        "values": {
+                            "OSCRxEnabled": {
+                                "type": 1,
+                                "data": "0"
+                            },
+                            "OSCRxPort": {
+                                "type": 1,
+                                "data": "57120"
+                            }
+                        },
+                        "subkeys": {}
+                    },
+                    "TCP": {
+                        "values": {
+                            "TCPUsername": {
+                                "type": 1,
+                                "data": "0"
+                            },
+                            "TCPPassword": {
+                                "type": 1,
+                                "data": "0"
+                            },
+                            "EnableSSHComms": {
+                                "type": 1,
+                                "data": "0"
+                            },
+                            "EnableTCPComms": {
+                                "type": 1,
+                                "data": "1"
+                            }
+                        },
+                        "subkeys": {}
+                    },
+                    "Watchdog": {
+                        "values": {
+                            "WatchdogEnabled": {
+                                "type": 1,
+                                "data": "1"
+                            }
+                        },
+                        "subkeys": {}
+                    }
+                }
+            }
+        }
+    }
+}

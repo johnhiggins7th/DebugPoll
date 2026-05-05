@@ -1,5 +1,6 @@
 const path = require('path');
 const net = require('net');
+const http = require('http');
 const { app, BrowserWindow, ipcMain } = require('electron');
 
 var mainWindow = null;
@@ -427,6 +428,49 @@ ipcMain.handle('server:fetchInfo', function (_event, connection) {
         tempConn.on('close', function () {
             if (!done) { finish(); }
         });
+    });
+});
+
+ipcMain.handle('registry:fetch', function (_event, connection) {
+    var config = connection || {};
+    var ip = String(config.ip || '').trim();
+    var port = parseInt(config.registryPort, 10) || 4477;
+
+    if (!ip) {
+        return { ok: false, message: 'No IP address configured.' };
+    }
+
+    return new Promise(function (resolve) {
+        var options = {
+            hostname: ip,
+            port: port,
+            path: '/registry',
+            method: 'GET'
+        };
+
+        var req = http.request(options, function (res) {
+            var body = '';
+            res.on('data', function (chunk) { body += chunk; });
+            res.on('end', function () {
+                try {
+                    var parsed = JSON.parse(body);
+                    resolve({ ok: true, data: parsed });
+                } catch (e) {
+                    resolve({ ok: false, message: 'Invalid JSON from registry server: ' + e.message });
+                }
+            });
+        });
+
+        req.setTimeout(8000, function () {
+            req.destroy();
+            resolve({ ok: false, message: 'Connection timed out after 8s.' });
+        });
+
+        req.on('error', function (err) {
+            resolve({ ok: false, message: 'Connection error: ' + err.message });
+        });
+
+        req.end();
     });
 });
 

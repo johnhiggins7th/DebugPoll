@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/host-diagnostics.schema.json",
+  "title": "HostDiagnostics",
+  "type": "object",
+  "required": [
+    "collectedAtUtc",
+    "computerName",
+    "os",
+    "nvidia",
+    "storage"
+  ],
+  "properties": {
+    "collectedAtUtc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "computerName": {
+      "type": "string"
+    },
+    "os": {
+      "type": "object",
+      "required": ["caption", "version", "build", "displayVersion"],
+      "properties": {
+        "caption": { "type": "string" },
+        "version": { "type": "string" },
+        "build": { "type": "string" },
+        "displayVersion": { "type": "string" },
+        "releaseId": { "type": "string" },
+        "installDateUtc": { "type": ["string", "null"] }
+      }
+    },
+    "nvidia": {
+      "type": "object",
+      "required": ["gpuCount", "gpus", "displayDrivers"],
+      "properties": {
+        "gpuCount": { "type": "integer", "minimum": 0 },
+        "gpus": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "driverVersion", "pnpDeviceId", "adapterRamBytes"],
+            "properties": {
+              "name": { "type": "string" },
+              "driverVersion": { "type": "string" },
+              "pnpDeviceId": { "type": "string" },
+              "adapterRamBytes": { "type": ["integer", "null"] }
+            }
+          }
+        },
+        "displayDrivers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["deviceName", "driverVersion", "providerName"],
+            "properties": {
+              "deviceName": { "type": "string" },
+              "driverVersion": { "type": "string" },
+              "driverDate": { "type": ["string", "null"] },
+              "providerName": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "storage": {
+      "type": "object",
+      "required": [
+        "physicalDisks",
+        "virtualDisks",
+        "storagePools",
+        "raid0Assessment"
+      ],
+      "properties": {
+        "physicalDisks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["friendlyName", "serialNumber", "sizeBytes"],
+            "properties": {
+              "friendlyName": { "type": "string" },
+              "serialNumber": { "type": "string" },
+              "mediaType": { "type": "string" },
+              "busType": { "type": "string" },
+              "canPool": { "type": ["boolean", "null"] },
+              "operationalStatus": { "type": "string" },
+              "healthStatus": { "type": "string" },
+              "sizeBytes": { "type": ["integer", "null"] }
+            }
+          }
+        },
+        "virtualDisks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["friendlyName", "resiliencySettingName", "sizeBytes"],
+            "properties": {
+              "friendlyName": { "type": "string" },
+              "resiliencySettingName": { "type": "string" },
+              "provisioningType": { "type": "string" },
+              "healthStatus": { "type": "string" },
+              "operationalStatus": { "type": "string" },
+              "footprintOnPoolBytes": { "type": ["integer", "null"] },
+              "sizeBytes": { "type": ["integer", "null"] }
+            }
+          }
+        },
+        "storagePools": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["friendlyName", "healthStatus"],
+            "properties": {
+              "friendlyName": { "type": "string" },
+              "isPrimordial": { "type": ["boolean", "null"] },
+              "healthStatus": { "type": "string" },
+              "operationalStatus": { "type": "string" }
+            }
+          }
+        },
+        "raid0Assessment": {
+          "type": "object",
+          "required": ["isRaid0Detected", "confidence", "method", "notes"],
+          "properties": {
+            "isRaid0Detected": { "type": "boolean" },
+            "confidence": {
+              "type": "string",
+              "enum": ["none", "low", "medium", "high"]
+            },
+            "method": { "type": "string" },
+            "notes": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

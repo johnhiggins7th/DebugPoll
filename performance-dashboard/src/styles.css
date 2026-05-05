@@ -699,3 +699,109 @@ textarea {
         font-size: 13px;
         padding: 24px;
     }
+
+    /* ══════════════════════════════════════════
+       REGISTRY DIFF TAB
+    ══════════════════════════════════════════ */
+
+    /* Config row inside the header card */
+    .rd-controls {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 6px;
+    }
+
+    .rd-config-row {
+        display: flex;
+        align-items: flex-end;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .rd-inline-label {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .rd-inline-label > span {
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        color: var(--muted);
+    }
+
+    .rd-inline-label input {
+        width: 160px;
+    }
+
+    #rd-port {
+        width: 80px;
+    }
+
+    .rd-fetch-btn-wrap {
+        display: flex;
+        align-items: flex-end;
+        padding-bottom: 1px;
+    }
+
+    /* Summary count colours */
+    .rd-count-modified { color: var(--accent-warm); }
+    .rd-count-added    { color: #4ade80; }
+    .rd-count-removed  { color: var(--danger); }
+
+    /* Diff rows */
+    .rd-diff-row {
+        display: grid;
+        grid-template-columns: 90px 1fr auto;
+        align-items: center;
+        gap: 14px;
+        padding: 9px 0;
+        border-bottom: 1px solid rgba(173, 206, 214, 0.07);
+    }
+
+    .rd-diff-row:last-child { border-bottom: none; }
+
+    .rd-key {
+        font-size: 12px;
+        font-family: 'Consolas', 'Monaco', monospace;
+        color: var(--text);
+        word-break: break-all;
+        line-height: 1.4;
+    }
+
+    .rd-values {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+        max-width: 480px;
+    }
+
+    .rd-baseline-val {
+        font-size: 12px;
+        color: var(--muted);
+        text-decoration: line-through;
+        max-width: 200px;
+        word-break: break-all;
+        text-align: right;
+    }
+
+    .rd-arrow {
+        font-size: 13px;
+        color: var(--muted);
+        flex-shrink: 0;
+    }
+
+    .rd-live-val {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--accent);
+        max-width: 200px;
+        word-break: break-all;
+        text-align: left;
+    }
+
+    .rd-live-val.rd-added   { color: #4ade80; }
+    .rd-live-val.rd-removed { color: var(--danger); }

@@ -35,6 +35,7 @@
                 <button class="tab-btn active" data-tab="session">Session</button>
                 <button class="tab-btn" data-tab="server-status">Server Status</button>
                 <button class="tab-btn" data-tab="test-profile">Test Profile</button>
+                <button class="tab-btn" data-tab="registry-diff">Registry Diff</button>
             </div>
 
             <!-- ══ SESSION TAB ══ -->
@@ -381,6 +382,69 @@
                 </section>
 
             </div><!-- /tab-test-profile -->
+
+
+            <!-- ══ REGISTRY DIFF TAB ══ -->
+            <div id="tab-registry-diff" class="tab-pane">
+
+                <div class="panel panel-wide ss-header-card">
+                    <div class="ss-server-header">
+                        <div>
+                            <div class="ss-server-name" id="rd-host-label">// Registry Diff</div>
+                            <div class="ss-badges">
+                                <span class="ss-badge" id="rd-host-badge">Not connected</span>
+                                <span class="ss-badge ss-badge-blue">vs W Series Default Baseline</span>
+                            </div>
+                        </div>
+                        <div class="ss-header-right rd-controls">
+                            <div class="rd-config-row">
+                                <label class="rd-inline-label">
+                                    <span>Registry Host IP</span>
+                                    <input id="rd-ip" type="text" placeholder="eg. 192.168.1.167">
+                                </label>
+                                <label class="rd-inline-label">
+                                    <span>Port</span>
+                                    <input id="rd-port" type="number" value="4477" min="1" max="65535">
+                                </label>
+                                <div class="rd-fetch-btn-wrap">
+                                    <button class="button button-primary" id="rd-refresh-btn" type="button">Fetch &amp; Compare</button>
+                                </div>
+                            </div>
+                            <div class="ss-last-updated" id="rd-last-updated">No data — click Fetch &amp; Compare</div>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="panel panel-wide rd-summary-panel" id="rd-summary-panel" style="display:none">
+                    <div class="card-title">Diff Summary</div>
+                    <div class="ss-ch-summary">
+                        <div class="ss-ch-stat">
+                            <div class="ss-ch-n rd-count-modified" id="rd-count-modified">0</div>
+                            <div class="ss-ch-l">Modified</div>
+                        </div>
+                        <div class="ss-ch-stat">
+                            <div class="ss-ch-n rd-count-added" id="rd-count-added">0</div>
+                            <div class="ss-ch-l">Added on SUT</div>
+                        </div>
+                        <div class="ss-ch-stat">
+                            <div class="ss-ch-n rd-count-removed" id="rd-count-removed">0</div>
+                            <div class="ss-ch-l">Removed from SUT</div>
+                        </div>
+                        <div class="ss-ch-stat">
+                            <div class="ss-ch-n" id="rd-count-total">0</div>
+                            <div class="ss-ch-l">Total Differences</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="panel panel-wide">
+                    <div class="card-title">Registry Differences <span class="ss-subtitle" id="rd-results-subtitle"></span></div>
+                    <div id="rd-diff-list">
+                        <div class="ss-no-data">Click &#8220;Fetch &amp; Compare&#8221; to load live registry data.</div>
+                    </div>
+                </section>
+
+            </div><!-- /tab-registry-diff -->
 
         </main>
     </div>

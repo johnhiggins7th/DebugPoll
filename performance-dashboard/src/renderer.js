@@ -1002,6 +1002,7 @@ initializeProfileForm();
 initializeSessionControls();
 initializePerformanceChart();
 initializeTabs();
+initializeRegistryDiffTab();
 
 function initializeTabs() {
     var tabBtns = document.querySelectorAll('.tab-btn');
@@ -1141,4 +1142,184 @@ function updateServerStatus(fs) {
                 '</div></div>';
         }).join('');
     }
+}
+
+// ── Registry Diff ──────────────────────────────────────────────────────────
+
+function escHtml(str) {
+    return String(str == null ? '' : str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
+
+function flattenRegistry(obj, path) {
+    var out = {};
+    var keys = Object.keys(obj || {});
+    for (var i = 0; i < keys.length; i++) {
+        var key = keys[i];
+        var node = obj[key];
+        var p = path ? (path + '\\' + key) : key;
+        if (node && node.values) {
+            var vKeys = Object.keys(node.values);
+            for (var v = 0; v < vKeys.length; v++) {
+                var vn = vKeys[v];
+                var vdata = node.values[vn];
+                out[p + '\\' + vn] = String(vdata && vdata.data != null ? vdata.data : '');
+            }
+        }
+        if (node && node.subkeys) {
+            var sub = flattenRegistry(node.subkeys, p);
+            var subKeys = Object.keys(sub);
+            for (var s = 0; s < subKeys.length; s++) {
+                out[subKeys[s]] = sub[subKeys[s]];
+            }
+        }
+    }
+    return out;
+}
+
+function computeRegistryDiff(live, baseline) {
+    var fl = flattenRegistry(live, '');
+    var fb = flattenRegistry(baseline, '');
+    var combined = {};
+    Object.keys(fl).forEach(function (k) { combined[k] = true; });
+    Object.keys(fb).forEach(function (k) { combined[k] = true; });
+    var allKeys = Object.keys(combined).sort();
+    var diffs = [];
+    for (var i = 0; i < allKeys.length; i++) {
+        var k = allKeys[i];
+        var lv = fl.hasOwnProperty(k) ? fl[k] : null;
+        var bv = fb.hasOwnProperty(k) ? fb[k] : null;
+        if (lv !== bv) {
+            diffs.push({
+                change: bv === null ? 'ADDED' : lv === null ? 'REMOVED' : 'MODIFIED',
+                key: k,
+                baseline: bv,
+                live: lv
+            });
+        }
+    }
+    return diffs;
+}
+
+function renderRegistryDiff(diffs) {
+    var listNode = nodeById('rd-diff-list');
+    var summaryPanel = nodeById('rd-summary-panel');
+    if (!listNode) { return; }
+
+    var modified = diffs.filter(function (d) { return d.change === 'MODIFIED'; });
+    var added    = diffs.filter(function (d) { return d.change === 'ADDED'; });
+    var removed  = diffs.filter(function (d) { return d.change === 'REMOVED'; });
+
+    var modN = nodeById('rd-count-modified');
+    var addN = nodeById('rd-count-added');
+    var remN = nodeById('rd-count-removed');
+    var totN = nodeById('rd-count-total');
+    var subtN = nodeById('rd-results-subtitle');
+
+    if (modN) { modN.textContent = String(modified.length); }
+    if (addN) { addN.textContent = String(added.length); }
+    if (remN) { remN.textContent = String(removed.length); }
+    if (totN) { totN.textContent = String(diffs.length); }
+    if (subtN) { subtN.textContent = diffs.length + ' difference' + (diffs.length !== 1 ? 's' : ''); }
+    if (summaryPanel) { summaryPanel.style.display = ''; }
+
+    if (diffs.length === 0) {
+        listNode.innerHTML = '<div class="ss-no-data">No differences found — SUT matches the W Series default baseline.</div>';
+        return;
+    }
+
+    var ordered = modified.concat(added).concat(removed);
+    var html = '';
+    for (var i = 0; i < ordered.length; i++) {
+        var d = ordered[i];
+        var badgeClass = d.change === 'ADDED' ? 'ss-badge-green' :
+                         d.change === 'REMOVED' ? 'ss-badge-red' : 'ss-badge-amber';
+
+        var valuesHtml;
+        if (d.change === 'ADDED') {
+            valuesHtml = '<span class="rd-live-val rd-added">' + escHtml(d.live) + '</span>';
+        } else if (d.change === 'REMOVED') {
+            valuesHtml =
+                '<span class="rd-baseline-val">' + escHtml(d.baseline) + '</span>' +
+                '<span class="rd-arrow">\u2192</span>' +
+                '<span class="rd-live-val rd-removed">(not present)</span>';
+        } else {
+            valuesHtml =
+                '<span class="rd-baseline-val">' + escHtml(d.baseline) + '</span>' +
+                '<span class="rd-arrow">\u2192</span>' +
+                '<span class="rd-live-val">' + escHtml(d.live) + '</span>';
+        }
+
+        html += '<div class="rd-diff-row">' +
+            '<span class="ss-badge ' + badgeClass + '">' + d.change + '</span>' +
+            '<span class="rd-key">' + escHtml(d.key) + '</span>' +
+            '<div class="rd-values">' + valuesHtml + '</div>' +
+            '</div>';
+    }
+    listNode.innerHTML = html;
+}
+
+function initializeRegistryDiffTab() {
+    var refreshBtn = nodeById('rd-refresh-btn');
+    var lastUpdatedNode = nodeById('rd-last-updated');
+    var hostLabel = nodeById('rd-host-label');
+    var hostBadge = nodeById('rd-host-badge');
+    var ipNode = nodeById('rd-ip');
+    var portNode = nodeById('rd-port');
+    if (!refreshBtn) { return; }
+
+    // Pre-populate IP from saved connection settings
+    var connSettings = loadConnectionSettings();
+    if (ipNode && !ipNode.value) {
+        ipNode.value = connSettings.ip || '';
+    }
+
+    refreshBtn.addEventListener('click', async function () {
+        var ip = ipNode ? String(ipNode.value || '').trim() : '';
+        var port = portNode ? (parseInt(portNode.value, 10) || 4477) : 4477;
+
+        if (!ip) {
+            if (lastUpdatedNode) { lastUpdatedNode.textContent = 'Error: enter a registry host IP address.'; }
+            return;
+        }
+
+        refreshBtn.disabled = true;
+        if (lastUpdatedNode) { lastUpdatedNode.textContent = 'Fetching live registry from ' + ip + ':' + port + ' …'; }
+
+        if (!window.performanceDashboard || typeof window.performanceDashboard.fetchRegistry !== 'function') {
+            if (lastUpdatedNode) { lastUpdatedNode.textContent = 'Error: bridge unavailable — is the app running in Electron?'; }
+            refreshBtn.disabled = false;
+            return;
+        }
+
+        var result = await window.performanceDashboard.fetchRegistry({ ip: ip, registryPort: port });
+        if (!result || !result.ok) {
+            if (lastUpdatedNode) { lastUpdatedNode.textContent = 'Error: ' + ((result && result.message) || 'Could not fetch registry.'); }
+            if (hostBadge) { hostBadge.textContent = 'Connection failed'; }
+            refreshBtn.disabled = false;
+            return;
+        }
+
+        var baseline = null;
+        try {
+            var resp = await fetch('assets/W_Series_default_Delta_registry.json');
+            if (!resp.ok) { throw new Error('HTTP ' + resp.status); }
+            baseline = await resp.json();
+        } catch (e) {
+            if (lastUpdatedNode) { lastUpdatedNode.textContent = 'Error loading baseline: ' + e.message; }
+            refreshBtn.disabled = false;
+            return;
+        }
+
+        var diffs = computeRegistryDiff(result.data, baseline);
+        renderRegistryDiff(diffs);
+
+        if (hostLabel) { hostLabel.textContent = '// ' + ip + ':' + port; }
+        if (hostBadge) { hostBadge.textContent = ip + ':' + port; }
+        if (lastUpdatedNode) { lastUpdatedNode.textContent = 'Updated ' + new Date().toLocaleTimeString(); }
+        refreshBtn.disabled = false;
+    });
 }
