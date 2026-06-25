@@ -470,18 +470,22 @@ function sanitizeForFilename(value) {
 
 function buildResultFilename(result) {
     var now = new Date();
-    var datePart = now.getFullYear() + '-' + pad2(now.getMonth() + 1) + '-' + pad2(now.getDate()) + 
+    var datePart = now.getFullYear() + '-' + pad2(now.getMonth() + 1) + '-' + pad2(now.getDate()) +
         '_' + pad2(now.getHours()) + '-' + pad2(now.getMinutes()) + '-' + pad2(now.getSeconds());
     var resultLabel = resultPart(result);
     var durationLabel = formatDurationForFilename(latestTimelineTime);
-    var parts = [datePart, resultLabel, durationLabel];
-
-    testInfoPrompts.forEach(function (field) {
-        if (field.excludeFromFilename) { return; }
-        if (field.showIf && !field.showIf()) { return; }
-        parts.push(sanitizeForFilename(testInfo[field.key] || ''));
-    });
-
+    var parts = [
+        datePart,
+        resultLabel,
+        sanitizeForFilename(testInfo.freeCommentField || ''),
+        durationLabel,
+        sanitizeForFilename(testInfo.serverType || ''),
+        sanitizeForFilename(testInfo.gpuModel || ''),
+        sanitizeForFilename(testInfo.numberOfGPUs || ''),
+        sanitizeForFilename(testInfo.seventhSpoutRendererUsed || ''),
+        sanitizeForFilename(testInfo.numberOfOutputs || ''),
+        sanitizeForFilename(testInfo.framerate || '')
+    ];
     return parts.join('-');
 }
 
@@ -585,9 +589,7 @@ function mapKeyToResult(key, category) {
 }
 
 function resultPart(result) {
-    if (result === 'P')  { return 'PASS'; }
-    if (result === 'UP') { return 'UPASS'; }
-    if (result === 'OK') { return 'OK'; }
+    if (result === 'C')  { return 'COMPLETED'; }
     return 'FAIL';
 }
 
@@ -608,16 +610,8 @@ function showPassFailPrompt() {
         return;
     }
 
-    var category = getResultCategory();
     var durationStr = latestTimelineTime || '00:00:00';
-    var promptLine;
-    if (category === 'PASS') {
-        promptLine = 'Test duration: ' + durationStr + '. Log result? Press P = Pass, F = Fail, or any other key to continue:';
-    } else if (category === 'UPASS') {
-        promptLine = 'Test duration: ' + durationStr + '. Log result? Press U = Unofficial Pass, F = Fail, or any other key to continue:';
-    } else {
-        promptLine = 'Test duration: ' + durationStr + '. Log result? Press O = OK, F = Fail, or any other key to continue:';
-    }
+    var promptLine = 'Test duration: ' + durationStr + '. Log result? Press Y = COMPLETED, or any other key to continue:';
     console.log(promptLine);
 
     if (!process.stdin.isTTY) {
@@ -625,9 +619,7 @@ function showPassFailPrompt() {
         pausedRl.question('> ', function (answer) {
             pausedRl.close();
             pausedRl = null;
-            var k = normalizeInputKey(answer);
-            var res = mapKeyToResult(k, category);
-            if (res) { createResultFile(res); }
+            if (normalizeInputKey(answer) === 'y') { createResultFile('C'); }
             showPausedPrompt();
         });
         return;
@@ -646,9 +638,7 @@ function showPassFailPrompt() {
         pausedRawHandler = null;
         pausedRl = null;
 
-        var k = normalizeInputKey(key);
-        var res = mapKeyToResult(k, category);
-        if (res) { createResultFile(res); }
+        if (normalizeInputKey(key) === 'y') { createResultFile('C'); }
         showPausedPrompt();
     };
 
