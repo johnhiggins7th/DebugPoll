@@ -913,9 +913,9 @@ function connect() {
 
     pollTimer = setInterval(function () {
         if (telnet && !telnet.destroyed) {
-            telnet.write(options.command + '\n\r');
-            telnet.write('statusex' + '\n\r');
-            telnet.write('timelinestatus' + '\n\r');
+            telnet.write('realtimecmd ' + options.command + '\n\r');
+            telnet.write('realtimecmd statusex' + '\n\r');
+            telnet.write('realtimecmd timelinestatus' + '\n\r');
         }
     }, options.logInterval * 1000);
 }
