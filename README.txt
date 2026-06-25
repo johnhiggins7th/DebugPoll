@@ -1,13 +1,16 @@
 ========================================
-  DEBUGPOLL - USER GUIDE
+  DEBUGPOLL v0.1.4 - USER GUIDE
 ========================================
 
 OVERVIEW
 --------
 DebugPoll connects to your Delta server and polls:
-  - DEBUGSTATUS
-  - STATUSEX
-  - TIMELINESTATUS
+  - DEBUGSTATUS REALTIMECMD
+  - STATUSEX REALTIMECMD
+  - TIMELINESTATUS REALTIMECMD
+
+The REALTIMECMD suffix prevents these commands from being recorded
+in the Delta external control log.
 
 It shows live stats in the console window and writes CSV files for later review.
 
@@ -74,13 +77,8 @@ Fields when entering new values:
   - GPU Model (eg. PRO4000)
   - Number of GPUs
   - 7thSpoutRenderer Used (Y/N)
-  - Disk Model (eg. CM7, 9100, CD8)
-  - Number of Drives
-  - Individual drives or RAID0 (eg IND, RAID)
   - Number of Outputs
-  - Number of Individual Movies (press Enter to use Number of Outputs)
-  - Output Resolution (eg. 3840x2160)
-  - Media Resolution (press Enter to use Output Resolution)
+  - Framerate (eg 60, 120)
   - Media BitDepth (eg. 8, 10, 12)
   - Media Sampling (eg. 422, 444)
   - Media FileType (eg. TGA, DPX, 7thNLC, NotchLC_mov)
@@ -105,10 +103,9 @@ When MODE becomes Stopped:
   - Logging pauses
 
 If test info is enabled, this prompt appears first:
-  Log result? Press P = Pass, F = Fail, or any other key to continue:
+  Test duration: HH:MM:SS. Log result? Press Y = COMPLETED, or any other key to continue:
 
-  - P = create PASS result file
-  - F = create FAIL result file
+  - Y = create COMPLETED result file
   - any other key = continue to paused prompt
 
 Paused prompt:
@@ -162,13 +159,12 @@ Summary section at end includes:
   - Optional STOP notes section (StoppedEventTimestamp, Note)
 
 
-PASS/FAIL RESULT FILES
-----------------------
-When logged at Stopped mode, result files are saved in logDirectory.
+RESULT FILES
+------------
+When Y is pressed at the end of a Playing session, a result file is saved in logDirectory.
 
 Naming format:
-  YYYY-MM-DD-PASS-<testInfo fields>.csv
-  YYYY-MM-DD-FAIL-<testInfo fields>.csv
+  YYYY-MM-DD_HH-MM-SS-COMPLETED-<FreeComment>-HH_MM-<ServerType>-<GPUModel>-<NumGPUs>-<7thSpoutRenderer>-<NumOutputs>-<Framerate>.csv
 
 Content:
   - Rows from the latest Playing session (plus preceding Stopped row)
