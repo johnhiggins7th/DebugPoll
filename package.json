@@ -1,0 +1,10 @@
+{
+  "name": "debugpoll",
+  "version": "0.1.0",
+  "description": "Remote debug status polling tool for 7thSense systems",
+  "main": "debugpoll.js",
+  "scripts": {
+    "start": "node debugpoll.js"
+  },
+  "license": "UNLICENSED"
+}
