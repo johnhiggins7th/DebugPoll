@@ -136,7 +136,7 @@ const testInfoPrompts = [
     { key: 'mediaSampling',           label: 'Media Sampling (eg. 422, 444)' },
     { key: 'mediaFileType',           label: 'Media FileType (eg. TGA, DPX, 7thNLC, NotchLC_mov)' },
     { key: 'warpAndBlend',            label: 'Warp and Blend (Y/N)' },
-    { key: 'freeCommentField',        label: 'Free Comment Field', excludeFromFilename: true }
+    { key: 'freeCommentField',        label: 'File Name Comment', excludeFromFilename: true, maxLength: 10 }
 ];
 
 function pad2(n) {
@@ -1128,7 +1128,13 @@ function editSelectedFields(data, indices, idx, hasChanges) {
     var prompt = 'Edit [' + (fieldIndex + 1) + '] ' + field.label + ' (current: "' + currentValue + '"): ';
 
     rl.question(prompt, function (answer) {
-        data[field.key] = answer.trim();
+        var trimmed = answer.trim();
+        if (field.maxLength && trimmed.length > field.maxLength) {
+            console.log('  Maximum ' + field.maxLength + ' characters. Please try again.');
+            editSelectedFields(data, indices, idx, hasChanges);
+            return;
+        }
+        data[field.key] = trimmed;
         editSelectedFields(data, indices, idx + 1, true);
     });
 }
@@ -1258,6 +1264,11 @@ function askForTestInfoField(index) {
 
     rl.question('  ' + promptLabel + ': ', function (value) {
         var trimmed = value.trim();
+        if (field.maxLength && trimmed.length > field.maxLength) {
+            console.log('  Maximum ' + field.maxLength + ' characters. Please try again.');
+            askForTestInfoField(index);
+            return;
+        }
         if (!trimmed && field.defaultFrom) {
             testInfo[field.key] = testInfo[field.defaultFrom] || '';
         } else {

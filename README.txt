@@ -83,7 +83,7 @@ Fields when entering new values:
   - Media Sampling (eg. 422, 444)
   - Media FileType (eg. TGA, DPX, 7thNLC, NotchLC_mov)
   - Warp and Blend (Y/N)
-  - Free Comment Field
+  - File Name Comment (max 10 characters)
 
 
 LIVE CONSOLE OUTPUT
